@@ -12,20 +12,16 @@ export const sendProfileChangeRequest = async (
     direccion: string;
     documento: string;
     codigoPostal: string;
-    domicilioInstal: string;
-    localidadInstal: string;
-    telefonoInstal: string;
-    emailInstal: string;
     observaciones: string;
-    senalConexion: string;
   }
 ) => {
   try {
+    console.log("Datos a enviar:", { userId, ...data });
     const response = await axios.post(
-      `${apiURL}/asistencias`,  // Aquí usamos el endpoint de asistencias
+      `${apiURL}/asistencias`,
       {
         userId,
-        tipo: 'cambio_perfil', // Puedes agregar un campo para identificar el tipo de asistencia
+        tipo: 'cambio_perfil',
         ...data,
       },
       {
@@ -35,8 +31,9 @@ export const sendProfileChangeRequest = async (
       }
     );
     return response.data;
-  } catch (error) {
-    console.error("Error al enviar la solicitud de cambio de perfil:", error);
+  } catch (error: any) {
+    console.error("Error al enviar la solicitud de cambio de perfil:", error.response?.data || error.message);
     throw error;
   }
 };
+

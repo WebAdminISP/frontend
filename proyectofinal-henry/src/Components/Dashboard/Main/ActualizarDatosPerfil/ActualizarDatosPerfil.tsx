@@ -13,12 +13,7 @@ const ActualizarDatosPerfil: React.FC = () => {
     direccion: '',
     documento: '',
     codigoPostal: '',
-    domicilioInstal: '',
-    localidadInstal: '',
-    telefonoInstal: '',
-    emailInstal: '',
     observaciones: '',
-    senalConexion: '',
   });
 
   const [errors, setErrors] = useState<any>({});
@@ -33,12 +28,7 @@ const ActualizarDatosPerfil: React.FC = () => {
         direccion: userData.userData.direccion || '',
         documento: userData.userData.documento?.toString() || '',
         codigoPostal: userData.userData.codigoPostal?.toString() || '',
-        domicilioInstal: userData.userData.domicilioInstal || '',
-        localidadInstal: userData.userData.localidadInstal || '',
-        telefonoInstal: userData.userData.telefonoInstal?.toString() || '',
-        emailInstal: userData.userData.emailInstal || '',
         observaciones: userData.userData.observaciones || '',
-        senalConexion: userData.userData.senalConexion || '',
       });
     }
   }, [userData]);
@@ -53,12 +43,6 @@ const ActualizarDatosPerfil: React.FC = () => {
     if (!formData.direccion) newErrors.direccion = 'La dirección es obligatoria.';
     if (!formData.documento) newErrors.documento = 'El documento es obligatorio.';
     if (!formData.codigoPostal) newErrors.codigoPostal = 'El código postal es obligatorio.';
-    if (!formData.domicilioInstal) newErrors.domicilioInstal = 'El domicilio de instalación es obligatorio.';
-    if (!formData.localidadInstal) newErrors.localidadInstal = 'La localidad de instalación es obligatoria.';
-    if (!formData.telefonoInstal) newErrors.telefonoInstal = 'El teléfono de instalación es obligatorio.';
-    if (!formData.emailInstal) newErrors.emailInstal = 'El email de instalación es obligatorio.';
-    else if (!/\S+@\S+\.\S+/.test(formData.emailInstal)) newErrors.emailInstal = 'El email de instalación no es válido.';
-    if (!formData.senalConexion) newErrors.senalConexion = 'La señal de conexión es obligatoria.';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -76,7 +60,7 @@ const ActualizarDatosPerfil: React.FC = () => {
     setSubmitError(null);  // Limpiar errores previos
     if (validate()) {
       try {
-        if (!userData?.tokenData?.token || !userData?.userData?.id) {
+        if (!userData?.tokenData.token || !userData.userData.id) {
           setSubmitError('Falta el token de autenticación o el ID de usuario.');
           return;
         }
@@ -161,46 +145,6 @@ const ActualizarDatosPerfil: React.FC = () => {
             {errors.codigoPostal && <p className="text-red-500 text-sm">{errors.codigoPostal}</p>}
           </div>
           <div>
-            <input 
-              name="domicilioInstal"
-              value={formData.domicilioInstal}
-              onChange={handleChange}
-              placeholder="Domicilio de Instalación"
-              className="border p-2 rounded w-full"
-            />
-            {errors.domicilioInstal && <p className="text-red-500 text-sm">{errors.domicilioInstal}</p>}
-          </div>
-          <div>
-            <input 
-              name="localidadInstal"
-              value={formData.localidadInstal}
-              onChange={handleChange}
-              placeholder="Localidad de Instalación"
-              className="border p-2 rounded w-full"
-            />
-            {errors.localidadInstal && <p className="text-red-500 text-sm">{errors.localidadInstal}</p>}
-          </div>
-          <div>
-            <input 
-              name="telefonoInstal"
-              value={formData.telefonoInstal}
-              onChange={handleChange}
-              placeholder="Teléfono de Instalación"
-              className="border p-2 rounded w-full"
-            />
-            {errors.telefonoInstal && <p className="text-red-500 text-sm">{errors.telefonoInstal}</p>}
-          </div>
-          <div>
-            <input 
-              name="emailInstal"
-              value={formData.emailInstal}
-              onChange={handleChange}
-              placeholder="Email de Instalación"
-              className="border p-2 rounded w-full"
-            />
-            {errors.emailInstal && <p className="text-red-500 text-sm">{errors.emailInstal}</p>}
-          </div>
-          <div>
             <textarea 
               name="observaciones"
               value={formData.observaciones}
@@ -209,23 +153,13 @@ const ActualizarDatosPerfil: React.FC = () => {
               className="border p-2 rounded w-full"
             />
           </div>
-          <div>
-            <input 
-              name="senalConexion"
-              value={formData.senalConexion}
-              onChange={handleChange}
-              placeholder="Señal de Conexión"
-              className="border p-2 rounded w-full"
-            />
-            {errors.senalConexion && <p className="text-red-500 text-sm">{errors.senalConexion}</p>}
-          </div>
         </div>
         {submitError && <p className="text-red-500 text-center mb-4">{submitError}</p>}
         <button 
           type="submit" 
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-full"
         >
-          Actualizar Datos
+          Solicitar cambios de datos
         </button>
       </form>
     </div>

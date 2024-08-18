@@ -88,12 +88,7 @@ const AceptarCambiosPerfil: React.FC = () => {
               <p><strong>Dirección:</strong> {request.direccion}</p>
               <p><strong>Documento:</strong> {request.documento}</p>
               <p><strong>Código Postal:</strong> {request.codigoPostal}</p>
-              <p><strong>Domicilio de Instalación:</strong> {request.domicilioInstal}</p>
-              <p><strong>Localidad de Instalación:</strong> {request.localidadInstal}</p>
-              <p><strong>Teléfono de Instalación:</strong> {request.telefonoInstal}</p>
-              <p><strong>Email de Instalación:</strong> {request.emailInstal}</p>
               <p><strong>Observaciones:</strong> {request.observaciones}</p>
-              <p><strong>Señal de Conexión:</strong> {request.senalConexion}</p>
               <div className="flex gap-4 mt-4">
                 <button 
                   onClick={() => handleAccept(request.id)} 
