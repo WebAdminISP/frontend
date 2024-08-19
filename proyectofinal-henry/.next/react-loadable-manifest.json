@@ -1,10 +1,10 @@
 {
-  "Components\\Dashboard\\Main\\Home\\Estadodecuenta\\Estadodecuenta.tsx -> ./GarphicBars": {
-    "id": "Components\\Dashboard\\Main\\Home\\Estadodecuenta\\Estadodecuenta.tsx -> ./GarphicBars",
+  "components\\Dashboard\\Main\\Home\\Estadodecuenta\\Estadodecuenta.tsx -> ./GarphicBars": {
+    "id": "components\\Dashboard\\Main\\Home\\Estadodecuenta\\Estadodecuenta.tsx -> ./GarphicBars",
     "files": []
   },
-  "Components\\Dashboard\\Main\\Home\\PanelDeControl\\PanelDeControl.tsx -> ./GarphicBarsAdmin": {
-    "id": "Components\\Dashboard\\Main\\Home\\PanelDeControl\\PanelDeControl.tsx -> ./GarphicBarsAdmin",
+  "components\\Dashboard\\Main\\Home\\PanelDeControl\\PanelDeControl.tsx -> ./GarphicBarsAdmin": {
+    "id": "components\\Dashboard\\Main\\Home\\PanelDeControl\\PanelDeControl.tsx -> ./GarphicBarsAdmin",
     "files": []
   }
 }
