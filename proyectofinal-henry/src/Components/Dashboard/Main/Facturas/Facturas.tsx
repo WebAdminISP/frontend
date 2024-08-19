@@ -2,7 +2,7 @@
 import React from "react";
 import FacturasList from "./FacturasCard";
 import { useSidebarContext } from "@/context/SidebarContext";
-import { TituloPlanesInternet } from "@/Components/LandinPage/PlanesDeInternet/Titulo";
+import { TituloPlanesInternet } from "@/components/LandinPage/PlanesDeInternet/Titulo";
 
 const Facturas: React.FC = () => {
   const { btnFixed } = useSidebarContext();
