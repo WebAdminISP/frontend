@@ -5,7 +5,6 @@ const apiURL = process.env.NEXT_PUBLIC_API_URL;
 export const fetchFacturasId = async (token: string, id: string): Promise<Factura[]> => {
   try {
     const response = await axios.get(
-      //`http://localhost:3000/users/3cca6e85-d456-4a39-8f6a-18235cd76abf`,
       `${apiURL}/users/${id}`,
       {
         headers: {

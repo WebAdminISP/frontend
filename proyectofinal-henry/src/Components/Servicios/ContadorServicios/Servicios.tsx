@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Contador } from "./Contador";
-import { TituloPlanesInternet } from "@/Components/LandinPage/PlanesDeInternet/Titulo";
+import { TituloPlanesInternet } from "@/components/LandinPage/PlanesDeInternet/Titulo";
 import { fetchServicios } from "@/services/Planes.services";
 
 export const ServiciosVista: React.FC = () => {
