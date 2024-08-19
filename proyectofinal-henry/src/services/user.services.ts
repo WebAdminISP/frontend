@@ -102,7 +102,7 @@ export const deleteUserById = async (userId: string, token: string) => {
 export const crearUsuario = async (userPayload: any, token: string) => {
   try {
     const response = await axios.post(
-      '${apiURL}/auths/signup',
+      `${apiURL}/auths/signup`,
       userPayload,
       {
         headers: {
