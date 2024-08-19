@@ -1,7 +1,7 @@
 import React from "react";
 
 import ExpirationAlert from "../ExpirationAlert/ExpirationAlert";
-import Loading from "@/components/Dashboard/Loading/Loading";
+import Loading from "@/Components/Dashboard/Loading/Loading";
 
 
 const Main = ({ page }: { page: string }) => {

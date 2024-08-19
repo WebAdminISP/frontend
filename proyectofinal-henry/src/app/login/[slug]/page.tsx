@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/LandinPage/Navbar'
-import Login from '@/components/Login/Login'
+import { Navbar } from '@/Components/LandinPage/Navbar'
+import Login from '@/Components/Login/Login'
 
 import React from 'react'
 
