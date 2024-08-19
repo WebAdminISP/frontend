@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components\\\\Dashboard\\\\Main\\\\Home\\\\Estadodecuenta\\\\Estadodecuenta.tsx -> ./GarphicBars\":{\"id\":\"components\\\\Dashboard\\\\Main\\\\Home\\\\Estadodecuenta\\\\Estadodecuenta.tsx -> ./GarphicBars\",\"files\":[]},\"components\\\\Dashboard\\\\Main\\\\Home\\\\PanelDeControl\\\\PanelDeControl.tsx -> ./GarphicBarsAdmin\":{\"id\":\"components\\\\Dashboard\\\\Main\\\\Home\\\\PanelDeControl\\\\PanelDeControl.tsx -> ./GarphicBarsAdmin\",\"files\":[]}}"
+self.__REACT_LOADABLE_MANIFEST="{}"
