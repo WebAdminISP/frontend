@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      textAlign: {
+        'webkit-center': '-webkit-center',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -16,9 +19,6 @@ const config: Config = {
       colors: {
         customBlue: '#0D457E',
         textBlue: "#0872DB",
-      },
-      fontFamily: {
-        roboto: ['Roboto', 'sans-serif'],
       },
     },
   },

@@ -63,7 +63,7 @@ export async function loginUser(id: string|null, token: string|null) {
 
 export const getUserById = async (userId: string, token: string) => {
   try {
-    const response = await axios.get(`http://localhost:3000/users/${userId}`, {
+    const response = await axios.get(`${apiURL}/users/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -82,7 +82,7 @@ export const getUserById = async (userId: string, token: string) => {
 
 export const deleteUserById = async (userId: string, token: string) => {
   try {
-    const response = await axios.delete(`http://localhost:3000/users/${userId}`, {
+    const response = await axios.delete(`${apiURL}/users/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -102,7 +102,7 @@ export const deleteUserById = async (userId: string, token: string) => {
 export const crearUsuario = async (userPayload: any, token: string) => {
   try {
     const response = await axios.post(
-      'http://localhost:3000/auths/signup',
+      `${apiURL}/auths/signup`,
       userPayload,
       {
         headers: {

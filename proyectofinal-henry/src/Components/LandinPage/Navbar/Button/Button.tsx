@@ -9,7 +9,7 @@ import ButtonAvatar from './ButtonAvatar/ButtonAvatar';
 
 const Button = () => {
     const { userData } = useAuth();
-    const token = userData?.tokenData.token
+    const token = userData?.tokenData ? userData?.tokenData.token : "";
 
   return (
     <>

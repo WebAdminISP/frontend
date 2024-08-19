@@ -1,6 +1,6 @@
 import React from "react";
 import SoporteTecnico from "./TarjetasSoporte";
-import { TituloPlanesInternet } from "@/Components/LandinPage/PlanesDeInternet/Titulo";
+import { TituloPlanesInternet } from "@/components/LandinPage/PlanesDeInternet/Titulo";
 
 const Serviciotecnico: React.FC = () => {
   return (
