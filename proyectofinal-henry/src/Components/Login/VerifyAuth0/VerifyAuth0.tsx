@@ -1,5 +1,5 @@
 'use client'
-import Loading from '@/Components/Dashboard/Loading/Loading';
+import Loading from '@/components/Dashboard/Loading/Loading';
 import { useAuth } from '@/context/AuthContext';
 import { loginUser } from '@/services/user.services';
 import { ITokenSession, IUserSession } from '@/types/login.types';
