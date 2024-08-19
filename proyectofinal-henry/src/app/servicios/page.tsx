@@ -1,9 +1,9 @@
-import { Navbar } from "@/Components/LandinPage/Navbar";
-import { TituloPlanesInternet } from "@/Components/LandinPage/PlanesDeInternet/Titulo";
-import { Contador } from "@/Components/Servicios/ContadorServicios/Contador";
+import { Navbar } from "@/components/LandinPage/Navbar";
+import { TituloPlanesInternet } from "@/components/LandinPage/PlanesDeInternet/Titulo";
+import { Contador } from "@/components/Servicios/ContadorServicios/Contador";
 import React from "react";
 import "animate.css";
-import { ServiciosVista } from "@/Components/Servicios/ContadorServicios/Servicios";
+import { ServiciosVista } from "@/components/Servicios/ContadorServicios/Servicios";
 
 const page = () => {
   return (

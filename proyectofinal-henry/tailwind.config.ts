@@ -17,9 +17,9 @@ const config: Config = {
         customBlue: '#0D457E',
         textBlue: "#0872DB",
       },
-      fontFamily: {
-        roboto: ['Roboto', 'sans-serif'],
-      },
+      // fontFamily: {
+      //   roboto: ['Roboto', 'sans-serif'],
+      // },
     },
   },
   plugins: [],
