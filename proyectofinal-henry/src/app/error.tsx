@@ -1,6 +1,6 @@
 'use client' // Error components must be Client Components
  
-import InConstruction from '@/components/InConstruction/InConstruction'
+import InConstruction from '@/Components/InConstruction/InConstruction'
 import { useEffect } from 'react'
  
 export default function Error({

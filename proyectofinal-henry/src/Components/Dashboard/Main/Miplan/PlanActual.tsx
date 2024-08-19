@@ -1,6 +1,6 @@
 "use client";
-import { TituloPlanesInternet } from "@/components/LandinPage/PlanesDeInternet/Titulo";
-import { Contador } from "@/components/Servicios/ContadorServicios/Contador";
+import { TituloPlanesInternet } from "@/Components/LandinPage/PlanesDeInternet/Titulo";
+import { Contador } from "@/Components/Servicios/ContadorServicios/Contador";
 import React, { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { getUserById } from "@/services/user.services";
