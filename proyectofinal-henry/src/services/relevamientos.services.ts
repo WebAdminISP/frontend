@@ -34,7 +34,7 @@ export async function enviarRelevamiento(data: RelevamientoData): Promise<any> {
     }
   }
   
-  // Función para crear un nuevo usuario
+ 
   export async function crearUsuario(data: { nombre: string; email: string; password: string; }): Promise<any> {
     try {
       const response = await axios.post(`${apiURL}/auths/signup`, data);
