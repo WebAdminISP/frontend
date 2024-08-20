@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { deleteUserById } from "@/services/user.services";
 import ConfirmationModal from "./ConfirmacionDarDeBajaModal";
+import ModalEdicionDeDatos from "./ModalEdicionDeDatos";
 
 interface UserDetailModalProps {
   user: any;
@@ -18,6 +19,7 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({
   const { userData } = useAuth();
   const token = userData?.tokenData?.token;
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showConfirmationEdit, setShowConfirmationEdit] = useState(false);
 
   const handleDelete = async () => {
     if (user && token) {
@@ -106,6 +108,12 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({
             >
               Dar de baja
             </button>
+            <button
+              onClick={() => setShowConfirmationEdit(true)}
+              className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+            >
+              Editar datos
+            </button>
           </div>
         </div>
       </div>
@@ -113,6 +121,12 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({
         <ConfirmationModal
           onConfirm={handleConfirmDelete}
           onCancel={handleCancelDelete}
+        />
+      )}
+
+      {showConfirmationEdit && (
+        <ModalEdicionDeDatos user={user}
+        onClose={onClose}
         />
       )}
     </>
