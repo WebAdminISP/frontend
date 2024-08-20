@@ -77,12 +77,7 @@ const getColorByFirstLetter = (name: string) => {
         <p><strong className='text-blue-900'>Documento:</strong> {userData.userData.documento}</p>
         <p><strong className='text-blue-900'>Razón Social:</strong> {userData.userData.razonSocial}</p>
         <p><strong className='text-blue-900'>Código Postal:</strong> {userData.userData.codigoPostal}</p>
-        <p><strong className='text-blue-900'>Domicilio de Instalación:</strong> {userData.userData.domicilioInstal}</p>
-        <p><strong className='text-blue-900'>Localidad de Instalación:</strong> {userData.userData.localidadInstal}</p>
-        <p><strong className='text-blue-900'>Teléfono de Instalación:</strong> {userData.userData.telefonoInstal}</p>
-        <p><strong className='text-blue-900'>Email de Instalación:</strong> {userData.userData.emailInstal}</p>
         <p><strong className='text-blue-900'>Observaciones:</strong> {userData.userData.observaciones}</p>
-        <p><strong className='text-blue-900'>Señal de Conexión:</strong> {userData.userData.senalConexion}</p>
       </div>
 
       <br/>
