@@ -50,12 +50,12 @@ export const validateFormRelevamiento = (input: RelevamientoFormData): Relevamie
       if (input.direccion.trim().length < 1) {
         errors.direccion = `El campo direccion es obligatorio`;
       } 
-      if (input.latitud) {
+      if (input.latitud.toString().length < 1) {
         errors.latitud = `El campo latitud es obligatorio`;
       } 
-      if (input.longitud) {
+      if (input.longitud.toString().length < 1) {
         errors.longitud = `El campo longitud es obligatorio`;
-      } 
+      }  
       if (input.tipoDocum.trim().length < 1) {
         errors.tipoDocum = `El campo tipoDocum es obligatorio`;
       } 
