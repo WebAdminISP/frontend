@@ -8,23 +8,27 @@ import { sendProfileChangeRequest } from "@/services/profileApi";
 interface UserDetailModalProps {
   user: UserDetail;
   onClose: () => void;
+  isOpen: any;
+  userId: string;
 }
 
 interface UserDetail {
-  id?: string | undefined,
-  nombre: string,
-  telefono: string,
-  direccion: string,
-  documento: number,
-  email: string,
-  codigoPostal: string,
-  observaciones?: string,
-  senalConexion?: string,
-  createdAt?: string | number | Date | undefined,
-  isAdmin?: string,
+  id?: string | undefined;
+  nombre: string;
+  telefono: string;
+  direccion: string;
+  documento: number;
+  email: string;
+  codigoPostal: string;
+  observaciones?: string;
+  senalConexion?: string;
+  createdAt?: string | number | Date | undefined;
+  isAdmin?: string;
 }
 
-const ModalEdicionDeDatos: React.FC<UserDetailModalProps> = ({
+const ModalEdicionDeDatos: React.FC<any> = ({
+  userId,
+  isOpen,
   user,
   onClose,
 }) => {
@@ -50,12 +54,11 @@ const ModalEdicionDeDatos: React.FC<UserDetailModalProps> = ({
 
   const handleConfirmChange = async () => {
     try {
-      if(token)
-      await sendProfileChangeRequest(token, user.id , formData)
+      if (token) await sendProfileChangeRequest(token, user.id, formData);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   if (!user) return null;
 
@@ -68,62 +71,62 @@ const ModalEdicionDeDatos: React.FC<UserDetailModalProps> = ({
             <strong>ID:</strong> {user.id}
           </p>
           <p>
-            <strong>Nombre:</strong> 
-            <input 
-              type="text" 
+            <strong>Nombre:</strong>
+            <input
+              type="text"
               name="nombre"
-              value={formData.nombre} 
-              onChange={handleInputChange} 
+              value={formData.nombre}
+              onChange={handleInputChange}
               className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
             />
           </p>
           <p>
-            <strong>Email:</strong> 
-            <input 
-              type="text" 
+            <strong>Email:</strong>
+            <input
+              type="text"
               name="email"
-              value={formData.email} 
-              onChange={handleInputChange} 
+              value={formData.email}
+              onChange={handleInputChange}
               className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
             />
           </p>
           <p>
-            <strong>Teléfono:</strong> 
-            <input 
-              type="text" 
+            <strong>Teléfono:</strong>
+            <input
+              type="text"
               name="telefono"
-              value={formData.telefono} 
-              onChange={handleInputChange} 
+              value={formData.telefono}
+              onChange={handleInputChange}
               className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
             />
           </p>
           <p>
-            <strong>Dirección:</strong> 
-            <input 
-              type="text" 
+            <strong>Dirección:</strong>
+            <input
+              type="text"
               name="direccion"
-              value={formData.direccion} 
-              onChange={handleInputChange} 
+              value={formData.direccion}
+              onChange={handleInputChange}
               className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
             />
           </p>
 
           <p>
-            <strong>Documento:</strong> 
-            <input 
-              type="text" 
+            <strong>Documento:</strong>
+            <input
+              type="text"
               name="documento"
-              value={formData.documento} 
-              onChange={handleInputChange} 
+              value={formData.documento}
+              onChange={handleInputChange}
               className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
             />
           </p>
           <p>
-            <strong>Observaciones:</strong> 
-            <input 
-              type="text" 
+            <strong>Observaciones:</strong>
+            <input
+              type="text"
               name="observaciones"
-              value={user.observaciones} 
+              value={user.observaciones}
               className="ml-6 px-2 w-[50%] rounded-md shadow-sm"
             />
           </p>
@@ -150,7 +153,6 @@ const ModalEdicionDeDatos: React.FC<UserDetailModalProps> = ({
             >
               Guardar cambios
             </button>
-            
           </div>
         </div>
       </div>

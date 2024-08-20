@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
-const API_KEY_MAPS = process.env.NEXT_PUBLIC_API_KEY_MAPS ? process.env.NEXT_PUBLIC_API_KEY_MAPS : "";
+const API_KEY_MAPS = process.env.NEXT_PUBLIC_API_KEY_MAPS
+  ? process.env.NEXT_PUBLIC_API_KEY_MAPS
+  : "";
 
 const containerStyle = {
   width: "100%",
@@ -20,7 +22,7 @@ export const Mapa: React.FC<MapaProps> = ({
   coordinates,
   onLocationChange,
 }) => {
-  const { isLoaded } = useJsApiLoader({googleMapsApiKey: API_KEY_MAPS});
+  const { isLoaded } = useJsApiLoader({ googleMapsApiKey: API_KEY_MAPS });
 
   const mapRef = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map | null>(null);

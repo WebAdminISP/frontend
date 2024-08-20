@@ -2,7 +2,7 @@ import React from "react";
 import { BotonProps } from "./type";
 import Image from "next/image";
 
-export const BotonPagos: React.FC<BotonProps> = ({ Imagen }) => {
+export const BotonPagos: React.FC<any> = ({ Imagen }) => {
   return (
     <Image
       src={Imagen.src}

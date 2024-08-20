@@ -1,5 +1,5 @@
 export interface BotonProps {
     Imagen: {
-      src: string;
+      src: any;
     };
   }
