@@ -13,7 +13,6 @@ const Dashboard = ({ page }: { page: string }) => {
         <SideBar />
         <div className="min-h-svh w-full overflow-hidden transition-all duration-500 ease-in-out">
           <Navbar/>
-          {page === 'notifications' && <Notifications />}
           <Main page={page}/>
         </div>
       </div>

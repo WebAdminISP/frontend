@@ -1,11 +1,10 @@
 // components/EquiposEditModal.tsx
 import React from "react";
-import { useForm } from "react-hook-form";
-import axios from "axios";
 import Equipos from "@/types/Equipos.types";
 import { useAuth } from "@/context/AuthContext";
 import { EditarEquipo } from "@/services/Equipos.services";
 import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
 
 interface EquiposEditModalProps {
   equipo: Equipos | null;

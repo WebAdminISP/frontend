@@ -2,7 +2,11 @@
 import React from 'react';
 import Sala from './Sala/Sala';
 
-const Notifications = ({rooms}: {rooms:string[]}) => {
+interface MainProps {
+  rooms: string[];
+}
+
+const Notifications: React.FC<MainProps> = ({ rooms }) => {
 
   return (
     <div className="relative flex flex-col w-80 h-full bg-white dark:bg-gray-800 shadow-lg">

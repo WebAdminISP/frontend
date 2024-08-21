@@ -29,17 +29,12 @@ const AssignPlanModal: React.FC<AssignPlanModalProps> = ({
 }) => {
   const { userData } = useAuth();
 
-  if (!userData || !userData.tokenData || !userData.tokenData.token) {
-    console.error("Token no disponible");
-    return null;
-  }
-
-  const token = userData.tokenData.token;
-
+  
   const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
   const [planes, setPlanes] = useState<Plan[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
 
   useEffect(() => {
     if (isOpen) {
@@ -62,6 +57,14 @@ const AssignPlanModal: React.FC<AssignPlanModalProps> = ({
       loadPlanes();
     }
   }, [isOpen]);
+
+
+  if (!userData || !userData.tokenData || !userData.tokenData.token) {
+    console.error("Token no disponible");
+    return null;
+  }
+  const token = userData.tokenData.token;
+  
 
   const handleAssignPlan = async () => {
     if (selectedPlan && userData?.tokenData?.token) {
