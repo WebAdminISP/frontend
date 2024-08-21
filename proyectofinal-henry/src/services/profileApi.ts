@@ -9,7 +9,7 @@ export const sendProfileChangeRequest = async (
       nombre: string,
       telefono: string,
       direccion: string,
-      documento: number,
+      documento: string,
       email: string,
       codigoPostal: string
   }
@@ -17,10 +17,7 @@ export const sendProfileChangeRequest = async (
   try {
     // console.log("Datos a enviar:", { data.id, ...data });
     const response = await axios.put(
-      `${apiURL}/users/${userId}`,
-      {
-        data,
-      },
+      `${apiURL}/users/${userId}`, data,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -28,8 +25,12 @@ export const sendProfileChangeRequest = async (
       }
     );
     return response.data;
-  } catch (error: any) {
-    console.error("Error al enviar la solicitud de cambio de perfil:", error.response?.data || error.message);
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error("Error:", error.response?.data || error.message);
+    } else {
+      console.error("Error inesperado:", error);
+    }
     throw error;
   }
 };
