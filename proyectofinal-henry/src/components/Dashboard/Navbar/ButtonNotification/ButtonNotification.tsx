@@ -1,11 +1,38 @@
 'use client'
-
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Notifications from '../../Notifications/Notifications';
+import { useAuth } from '@/context/AuthContext';
+import { getPendingRooms } from '@/services/room.services';
+import { useRoom } from '@/context/RoomContext';
 
 const ButtonNotification = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [notifying, setNotifying] = useState(true);
+  const { roomIDs, updateRooms } = useRoom();
+  
+  
+  
+ // const { userData } = useAuth();
+  //const token = userData?.tokenData.token;
+  //const [rooms, setRooms] = useState<any[]>([]);
+
+
+  // useEffect(() => {
+  //   if(token){
+
+  //     const fetchRooms = async () => {
+  //       const pendingRooms = await getPendingRooms(token);
+  //       setRooms(pendingRooms);
+  //       console.log("buscando salas pendientes..");
+  //     };
+      
+  //     // Llamar a la API inmediatamente y luego cada cierto intervalo de tiempo (e.g., cada 30 segundos)
+  //     fetchRooms();
+  //     const intervalId = setInterval(fetchRooms, 5000); // 5 segundos
+      
+  //     return () => clearInterval(intervalId); // Limpiar el intervalo al desmontar el componente
+  //   }
+  // }, [token]);
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
@@ -18,6 +45,11 @@ const ButtonNotification = () => {
         className="relative flex h-8 w-8 items-center justify-center rounded-full border-0 bg-gray-400/30 text-gray-300 mr-4"
         onClick={toggleDrawer}
       >
+        {roomIDs.length > 0 && (
+      <span className="absolute mt-[-3px] mr-[-3px] top-0 right-0 flex items-center justify-center h-4 w-4 rounded-full bg-red-500 text-white text-xs ">
+        {roomIDs.length}
+      </span>
+    )}
         <span className={`${!notifying && 'hidden'} absolute -top-0.5 right-0 z-1 h-2 w-2 rounded-full bg-meta-1`}>
           <span className="absolute -z-1 inline-flex h-full w-full animate-ping rounded-full bg-meta-1 opacity-75"></span>
         </span>
@@ -26,42 +58,12 @@ const ButtonNotification = () => {
         </svg>
       </button>
 
-      {drawerOpen && (
-        <div className="fixed inset-0 flex justify-end z-50">
-          <div className="fixed inset-0 bg-black opacity-50" onClick={toggleDrawer}></div>
-          <div className="relative flex flex-col w-80 h-full bg-white dark:bg-gray-800 shadow-lg">
-            <div className="p-4">
-              <h5 className="text-lg font-medium text-gray-900 dark:text-white">Notificaciones</h5>
-            </div>
-            <ul className="flex-grow overflow-y-auto">
-              <li className="border-t border-gray-200 dark:border-gray-700">
-                <a className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Edita tu información rápidamente</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">12 Mayo, 2025</p>
-                </a>
-              </li>
-              <li className="border-t border-gray-200 dark:border-gray-700">
-                <a className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Un hecho establecido</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">24 Feb, 2025</p>
-                </a>
-              </li>
-              <li className="border-t border-gray-200 dark:border-gray-700">
-                <a className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Muchas variaciones</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">04 Ene, 2025</p>
-                </a>
-              </li>
-              <li className="border-t border-gray-200 dark:border-gray-700">
-                <a className="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
-                  <p className="text-sm text-gray-700 dark:text-gray-300">Variaciones de Lorem Ipsum</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">01 Dic, 2024</p>
-                </a>
-              </li>
-            </ul>
-          </div>
+      {drawerOpen && 
+         <div className="fixed inset-0 flex justify-end z-50">
+            <div className="fixed inset-0 bg-black opacity-50" onClick={toggleDrawer}></div>
+            <Notifications rooms={roomIDs}/>
         </div>
-      )}
+      }
     </div>
   );
 };

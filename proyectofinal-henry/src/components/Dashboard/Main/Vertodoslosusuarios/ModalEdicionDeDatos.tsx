@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { deleteUserById } from "@/services/user.services";
 import ConfirmationModal from "./ConfirmacionDarDeBajaModal";
 import { sendProfileChangeRequest } from "@/services/profileApi";
+import Swal from "sweetalert2";
 
 interface UserDetailModalProps {
   user: UserDetail;
@@ -40,7 +41,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
     email: user.email || "",
     telefono: user.telefono || "",
     direccion: user.direccion || "",
-    documento: user.documento,
+    documento:user.documento || "",
     codigoPostal: user.codigoPostal || "",
   });
 
@@ -54,9 +55,29 @@ const ModalEdicionDeDatos: React.FC<any> = ({
 
   const handleConfirmChange = async () => {
     try {
-      if (token) await sendProfileChangeRequest(token, user.id, formData);
-    } catch (error) {
-      console.error(error);
+      if(token){
+      console.log("Datos que se van a enviar:", formData);
+      await sendProfileChangeRequest(token, user.id , formData)
+      Swal.fire({
+        title: "¡Datos actualizados correctamente!",
+        icon: "success",
+        showCancelButton: false,
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Ok"
+      }).then((result) => {
+        if (result.isConfirmed || result.isDismissed) {
+          window.location.reload();
+				}
+      });
+      onClose();
+      }
+    } catch (error: any) {
+      console.error(error)
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error.response.data.message} / ${error.response.data.alert}`,
+      });
     }
   };
 
@@ -134,8 +155,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
             <strong>Señal de Conexión:</strong> {user.senalConexion}
           </p>
           <p>
-            <strong>Creado el:</strong>{" "}
-            {user.createdAt && new Date(user.createdAt).toLocaleDateString()}
+            <strong>Creado el:</strong>{" "}   {user.createdAt && new Date(user.createdAt).toLocaleDateString()}
           </p>
           <p>
             <strong>Es Administrador:</strong> {user.isAdmin ? "Sí" : "No"}
