@@ -1,9 +1,15 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import logo_01 from "../../../../public/images/Logo01.png";
 import Image from "next/image";
 import Button from "./Button/Button";
 
 export const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <>
       <nav className="bg-customBlue border-gray-200 dark:bg-gray-900 font-roboto fixed top-0 left-0 right-0 z-50">
@@ -64,7 +70,69 @@ export const Navbar: React.FC = () => {
           </div>
 
           <Button />
-
+          <button
+            data-collapse-toggle="navbar-default"
+            type="button"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+            aria-controls="navbar-default"
+            aria-expanded={isOpen ? "true" : "false"}
+            onClick={toggleMenu}
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+          {isOpen && (
+            <div className="absolute top-full right-0 mt-2 w-48 bg-customBlue text-white rounded-lg shadow-lg md:hidden max-h-screen overflow-auto">
+              <ul className="flex flex-col p-4 space-y-2">
+                <li>
+                  <a
+                    href="/"
+                    className="block py-2 px-3 hover:bg-blue-700 rounded-md"
+                  >
+                    Inicio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/servicios"
+                    className="block py-2 px-3 hover:bg-blue-700 rounded-md"
+                  >
+                    Servicios
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/herramientas"
+                    className="block py-2 px-3 hover:bg-blue-700 rounded-md"
+                  >
+                    Herramientas
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/#contacto"
+                    className="block py-2 px-3 hover:bg-blue-700 rounded-md"
+                  >
+                    Contacto
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
           {/* 
           <button
             data-collapse-toggle="navbar-default"

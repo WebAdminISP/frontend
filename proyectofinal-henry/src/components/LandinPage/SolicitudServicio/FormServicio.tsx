@@ -130,7 +130,7 @@ export const FormServicio: React.FC<FormServicioProps> = ({
   return (
     <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg mx-auto lg:ml-auto lg:w-1/3">
       <h1 className="text-2xl font-bold text-black text-center mb-6">
-        Elige el plan que quieres solicitar
+        Envia tus datos para solicitar un servicio
       </h1>
       <p className="text-black text-center mb-4">Por favor ingrese sus datos</p>
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
