@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 const API_KEY = process.env.NEXT_PUBLIC_ROOM_API_KEY;
@@ -12,7 +13,8 @@ export async function POST(request: Request) {
   try {
     const { roomIDs } = await request.json();
     console.log('Recibido array de roomIDs:', roomIDs);
-
+    //cookies().set("token", "data");
+    //let token = request.cookies.get('authToken');
     return NextResponse.json({ status: 'success', received: roomIDs });
   } 
   catch (error) {
