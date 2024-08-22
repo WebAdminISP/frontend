@@ -62,7 +62,7 @@ export const fetchAsistencias = async (token: string, page: number = 1, limit: n
 
 export const deleteAsistencia = async (id: string, token: string) => {
   try {
-    await axios.delete(`${apiURL}}/asistencias/${id}`, {
+    await axios.delete(`${apiURL}/asistencias/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
