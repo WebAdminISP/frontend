@@ -18,7 +18,7 @@ export const TarjetasPlanesInternet: React.FC = () => {
           <FlipBox
             frontTitle="Hogar"
             backTitle="Internet por fibra óptica
-hasta tu hogar "
+para tu hogar "
             imgSrc={HogarIcono.src}
             imgAlt="Imagen de icono de casa"
           />
@@ -32,7 +32,7 @@ hasta tu hogar "
           <FlipBox
             frontTitle="Empresas"
             backTitle="Internet por fibra óptica
-hasta tu negocio"
+para tu negocio"
             imgSrc={EmpresaIcono.src}
             imgAlt="Icono de una empresa"
           />

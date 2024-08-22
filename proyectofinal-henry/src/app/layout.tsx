@@ -5,6 +5,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { DarkProvider } from "@/context/DarkContext";
 import { SidebarProvider } from "@/context/SidebarContext";
 import { MercadoPagoProvider } from "@/context/MercadoPagosContext";
+import { RoomProvider } from "@/context/RoomContext";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -22,13 +23,15 @@ export default function RootLayout({
     <AuthProvider>
       <DarkProvider>
        <SidebarProvider>
-       <MercadoPagoProvider>
+        <RoomProvider>
+         <MercadoPagoProvider>
           <html lang="en">
             <body className={inter.className}>
                 {children}
             </body>
           </html>
-        </MercadoPagoProvider>
+         </MercadoPagoProvider>
+        </RoomProvider>
       </SidebarProvider>
      </DarkProvider>
     </AuthProvider>
