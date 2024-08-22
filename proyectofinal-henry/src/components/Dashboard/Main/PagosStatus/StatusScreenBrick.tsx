@@ -3,13 +3,21 @@ import { StatusScreen } from '@mercadopago/sdk-react';
 export const BACK_URL = process.env.NEXT_PUBLIC_API_URL_BACK_URL
 export const BACK_URL_ERROR = process.env.NEXT_PUBLIC_API_URL_BACK_URL_ERROR
 
-const StatusScreenBrick = ({ paymentId }: { paymentId: string }) => {
+interface StatusBrickProps {
+  paymentId: string;
+  invoiceId: (string | null);
+  userId: (string | null);
+}
+
+const StatusScreenBrick: React.FC<StatusBrickProps> = ({ paymentId, invoiceId, userId }) => {
 
   const initialization = {
     paymentId: paymentId,
-
+    invoiceId,
+    userId,
   };
 
+  console.log(initialization);
   const customization = {
     visual: {
       showExternalReference: true,

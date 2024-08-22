@@ -19,7 +19,7 @@ const Pagos = () => {
     const userId = searchParams.get('userId');
     const amount = searchParams.get('amount');
 
-    console.log(amount)
+    // console.log(amount)
     if (id) setInvoiceId(id);
     if (userId) setUserId(userId);
     if (amount) setAmount(parseInt(amount));
@@ -30,7 +30,7 @@ const Pagos = () => {
     const fetchPreferenceId = async () => {
       if (invoiceId && userId && amount) {
 
-        console.log('Id de factura:', invoiceId, 'Id de usuario:', userId, 'Precio a pagar:', amount);
+        // console.log('Id de factura:', invoiceId, 'Id de usuario:', userId, 'Precio a pagar:', amount,);
         try {
           const response = await axios.post(`${apiURL}/mercado-pago/create-preference`, {
             invoiceId,
@@ -58,7 +58,7 @@ const Pagos = () => {
       <h1 className="text-2xl font-bold text-blue-900 mt-5 dark:text-blue-400/70 mb-5">
         Pasarela de Pagos!
       </h1>
-      <PaymentBrick preferenceId={preferenceId} amount={amount}/>
+      <PaymentBrick preferenceId={preferenceId} amount={amount} userId={userId} invoiceId={invoiceId}/>
     </div>
   );
 };

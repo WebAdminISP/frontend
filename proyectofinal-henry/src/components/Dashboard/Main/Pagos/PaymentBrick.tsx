@@ -6,11 +6,13 @@ import { useRouter } from "next/navigation";
 interface PaymentBrickProps {
   preferenceId: string;
   amount: (number | null);
+  userId: (string | null);
+  invoiceId: (string | null);
 }
 
 export const apiURL = process.env.NEXT_PUBLIC_API_URL;
 
-const PaymentBrick: React.FC<PaymentBrickProps> = ({ preferenceId, amount }) => {
+const PaymentBrick: React.FC<PaymentBrickProps> = ({ preferenceId, amount, userId, invoiceId }) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -21,9 +23,12 @@ const PaymentBrick: React.FC<PaymentBrickProps> = ({ preferenceId, amount }) => 
 
   const initialization = {
     amount: (amount) ? amount : 1,
+    userId,
+    invoiceId,
     preferenceId,
   };
 
+  // console.log(initialization);
   const customization = {
     paymentMethods: {
       ticket: ['all'],
@@ -46,15 +51,16 @@ const PaymentBrick: React.FC<PaymentBrickProps> = ({ preferenceId, amount }) => 
         body: JSON.stringify({
           token: token,
           paymentMethod: selectedPaymentMethod,
+          initialization,
           ...formData,
         }),
       })
         .then((response) => response.json())
         // .then(() => resolve())
         .then((response) => {
-          console.log('Response from payment process:', response);
+          // console.log('Response from payment process:', response);
           const paymentId = response.id;
-          router.push(`/dashboard/pagosStatus?paymentId=${paymentId}`);
+          router.push(`/dashboard/pagosStatus?paymentId=${paymentId}&invoiceId=${invoiceId}&userId=${userId}`);
 
           resolve();
         })
