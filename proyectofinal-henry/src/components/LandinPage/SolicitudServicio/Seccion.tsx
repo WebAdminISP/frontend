@@ -64,6 +64,9 @@ export const Seccion: React.FC = () => {
         <h1 className="text-white text-4xl mt-10 lg:mt-5">
           haz click en el boton para cargar tus coordenadas
         </h1>
+        <p className="text-white text-m mt-10 lg:mt-5">
+          mueve el pin del mapa si no te posicionó correctamente
+        </p>
         <br />
 
         {coordinates && (
