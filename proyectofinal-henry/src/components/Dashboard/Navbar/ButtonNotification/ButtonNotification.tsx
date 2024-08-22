@@ -12,27 +12,27 @@ const ButtonNotification = () => {
   
   
   
- // const { userData } = useAuth();
-  //const token = userData?.tokenData.token;
-  //const [rooms, setRooms] = useState<any[]>([]);
+ const { userData } = useAuth();
+  const token = userData?.tokenData.token;
+  const [rooms, setRooms] = useState<any[]>([]);
 
 
-  // useEffect(() => {
-  //   if(token){
+  useEffect(() => {
+    if(token){
 
-  //     const fetchRooms = async () => {
-  //       const pendingRooms = await getPendingRooms(token);
-  //       setRooms(pendingRooms);
-  //       console.log("buscando salas pendientes..");
-  //     };
+      const fetchRooms = async () => {
+        const pendingRooms = await getPendingRooms(token);
+        setRooms(pendingRooms);
+        console.log("buscando salas pendientes..");
+      };
       
-  //     // Llamar a la API inmediatamente y luego cada cierto intervalo de tiempo (e.g., cada 30 segundos)
-  //     fetchRooms();
-  //     const intervalId = setInterval(fetchRooms, 5000); // 5 segundos
+      // Llamar a la API inmediatamente y luego cada cierto intervalo de tiempo (e.g., cada 30 segundos)
+      fetchRooms();
+      const intervalId = setInterval(fetchRooms, 5000); // 5 segundos
       
-  //     return () => clearInterval(intervalId); // Limpiar el intervalo al desmontar el componente
-  //   }
-  // }, [token]);
+      return () => clearInterval(intervalId); // Limpiar el intervalo al desmontar el componente
+    }
+  }, [token]);
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
