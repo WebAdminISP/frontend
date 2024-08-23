@@ -5,7 +5,6 @@ import { useAuth } from "@/context/AuthContext";
 import { fetchImageUpload } from "@/services/uploadImage.services";
 import Swal from "sweetalert2";
 import { IUserData } from "@/types/login.types";
-import useIsMobile from "@/hooks/HookIsMobile";
 
 interface ModalImagenProps {
   userId: string;
@@ -22,7 +21,6 @@ const ModalImagen: React.FC<ModalImagenProps> = ({
 }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const { userData, setUserData } = useAuth();
-  const isMobile = useIsMobile();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -56,26 +54,18 @@ const ModalImagen: React.FC<ModalImagenProps> = ({
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
-      <div
-        className={`bg-white p-4 rounded-lg shadow-lg ${
-          isMobile ? "max-w-xs w-full" : "max-w-sm w-full"
-        }`}
-      >
+      <div className="bg-white p-4 rounded-lg shadow-lg max-w-sm w-full">
         <div className="flex justify-end">
           <button
             onClick={closeModal}
-            className="text-gray-500 hover:text-gray-800 text-xl"
+            className="text-gray-500 hover:text-gray-800"
           >
             &times;
           </button>
         </div>
         <div className="text-center">
           <h2 className="text-xl font-bold mb-4">Cambiar Imagen de Perfil</h2>
-          <input
-            type="file"
-            onChange={handleFileChange}
-            className="mb-4 w-full text-sm"
-          />
+          <input type="file" onChange={handleFileChange} className="mb-4" />
           <button
             onClick={handleUpload}
             className="bg-blue-500 text-white py-2 px-4 rounded-lg"
