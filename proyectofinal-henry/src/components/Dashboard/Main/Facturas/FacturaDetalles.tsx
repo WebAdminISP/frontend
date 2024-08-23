@@ -26,7 +26,7 @@ const FacturaDetailModal: React.FC<FacturaDetailModalProps> = ({
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-3xl mx-auto">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-3xl mx-auto dark:bg-gray-600">
         <h2 className="text-xl font-bold mb-4 text-center">
           Detalles de la Factura
         </h2>

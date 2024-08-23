@@ -93,7 +93,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
   return (
     <>
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-        <div className="bg-white p-4 rounded-lg shadow-lg w-4/5 md:w-1/3 max-h-screen overflow-y-auto">
+        <div className="bg-white p-4 rounded-lg shadow-lg w-4/5 md:w-1/3 max-h-screen overflow-y-auto dark:bg-gray-600">
           <h2 className="text-2xl font-bold mb-4">Detalles del Usuario</h2>
           <p>
             <strong>ID:</strong> {user.id}
@@ -105,7 +105,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
               name="nombre"
               value={formData.nombre}
               onChange={handleInputChange}
-              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
+              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm dark:text-blue-800"
             />
           </p>
           <p>
@@ -115,7 +115,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
+              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm dark:text-blue-800"
             />
           </p>
           <p>
@@ -125,7 +125,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
               name="telefono"
               value={formData.telefono}
               onChange={handleInputChange}
-              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
+              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm  dark:text-blue-800"
             />
           </p>
           <p>
@@ -135,7 +135,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
               name="direccion"
               value={formData.direccion}
               onChange={handleInputChange}
-              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
+              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm dark:text-blue-800"
             />
           </p>
 
@@ -146,7 +146,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
               name="documento"
               value={formData.documento}
               onChange={handleInputChange}
-              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm"
+              className="ml-6 border px-2 w-[50%] border-gray-300 rounded-md shadow-sm dark:text-blue-800"
             />
           </p>
           <p>
@@ -155,7 +155,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
               type="text"
               name="observaciones"
               value={user.observaciones}
-              className="ml-6 px-2 w-[50%] rounded-md shadow-sm"
+              className="ml-6 px-2 w-[50%] rounded-md shadow-sm dark:text-blue-800"
             />
           </p>
           <p>

@@ -105,11 +105,12 @@ const PanelDeControl = () => {
         !users.some(user => user.email === relevamiento.email)
       );
       setTotalRelevamientos(filteredRelevamientos.length);
+      console.log('users', users) // Establece el total de relevamientos
       console.log('filteredRelevamientos', filteredRelevamientos) // Establece el total de relevamientos
     };
 
     getRelevamientos();
-  }, []);
+  }, [users]);
 
   useEffect(() => {
     const getRelevamientos = async () => {
@@ -131,7 +132,7 @@ const PanelDeControl = () => {
       {/* Primer Bloque: Datos del Usuario y Foto de Perfil */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Link href={"/dashboard/miperfil"}>
-          <div className="mb-6 p-4 bg-gray-100 border rounded-lg">
+          <div className="mb-6 p-4 bg-gray-100 border rounded-lg dark:bg-gray-600 dark:opacity-60">
             <h2 className="text-lg font-bold mb-2">DATOS DE USUARIO:</h2>
             <div className="grid grid-cols-3">
               <div className="flex justify-center items-center rounded-lg p-4">
@@ -155,19 +156,19 @@ const PanelDeControl = () => {
               </div>
               <div className="col-span-2">
                 <p className=" font-semibold ">
-                  <span className="text-blue-900 font-bold">Nombre: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Nombre: </span>{" "}
                   &nbsp; {userData?.userData.nombre}
                 </p>
                 <p className="font-semibold ">
-                  <span className="text-blue-900 font-bold">Email: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Email: </span>{" "}
                   &nbsp; {userData?.userData.email}
                 </p>
                 <p className="font-semibold ">
-                  <span className="text-blue-900 font-bold">Teléfono: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Teléfono: </span>{" "}
                   &nbsp; {userData?.userData.telefono}
                 </p>
                 <p className="font-semibold ">
-                  <span className="text-blue-900 font-bold">Dirección: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Dirección: </span>{" "}
                   &nbsp; {userData?.userData.direccion}
                 </p>
               </div>
@@ -175,14 +176,15 @@ const PanelDeControl = () => {
           </div>
         </Link>
         <Link href={"/dashboard/vertodoslosusuarios"}>
-          <div className="mb-6 h-[198px] p-4 bg-gray-100 border rounded-lg">
+          <div className="mb-6 h-[198px] p-4 bg-gray-100 border rounded-lg dark:bg-gray-600 dark:opacity-60">
             <h2 className="text-lg font-bold mb-2">TOTAL DE USUARIOS:</h2>
             <div className="grid grid-cols-2 ">
               <div className="flex justify-center items-center rounded-lg p-4 ">
                 <Image
                   src={imagenUsers}
                   alt="Foto de Perfil"
-                  className="w-auto h-22 object-cover "
+                  className="w-auto z-50 h-22 object-cover"
+                  style={{ filter: "brightness(1.1)", mixBlendMode: "multiply" }}
                 />
               </div>
               <div>
@@ -194,7 +196,7 @@ const PanelDeControl = () => {
           </div>
         </Link>
         <Link href={"/dashboard/relevamientos"}>
-          <div className="mb-6 p-4 bg-gray-100 border rounded-lg">
+          <div className="mb-6 p-4 bg-gray-100 border rounded-lg dark:bg-gray-600 dark:opacity-60">
             <h2 className="text-lg font-bold mb-2">TOTAL DE RELEVAMIENTOS:</h2>
             <div className="grid grid-cols-2 ">
               <div className="flex justify-center items-center rounded-lg p-4 ">
@@ -202,6 +204,7 @@ const PanelDeControl = () => {
                   src={imagenRelev}
                   alt="Foto de Perfil"
                   className="w-24 h-24 object-cover "
+                  style={{ filter: "brightness(1.1)", mixBlendMode: "multiply" }}
                 />
               </div>
               <div>
@@ -217,7 +220,7 @@ const PanelDeControl = () => {
       {/* Segundo Bloque: Gráfico y Total de Factura */}
       <div className="grid md:grid-cols-1  xl:grid-cols-2 gap-4">
         {/* Grid Izquierdo: Gráfico */}
-        <div className="h-[420px]  bg-gray-100 border rounded-lg p-4">
+        <div className="h-[420px]  bg-gray-100 border rounded-lg p-4 dark:bg-gray-600 dark:opacity-60">
           <h2 className="text-lg font-semibold mb-2">
             HISTORIAL DE ASISTENCIAS
           </h2>
@@ -229,7 +232,7 @@ const PanelDeControl = () => {
         </div>
         {/* Grid Derecho: Total de Factura */}
 
-        <div className="h-[420px]  mb-6 p-4 bg-gray-100 border rounded-lg">
+        <div className="h-[420px]  mb-6 p-4 bg-gray-100 border rounded-lg dark:bg-gray-600 dark:opacity-60">
           <h2 className="text-lg font-bold mb-2">DETALLES DE UBICACIÓN</h2>
           <br />
           <Maps userId={userId} />
@@ -237,7 +240,7 @@ const PanelDeControl = () => {
       </div>
 
       {/* Tercer Bloque: HISTORIAL DE FACTURAS */}
-      <div className="mb-6 p-4 bg-gray-100 border rounded-lg hidden md:block">
+      <div className="mb-6 p-4 bg-gray-100 border rounded-lg hidden md:block dark:bg-gray-600 dark:opacity-60">
         <h2 className="text-lg font-bold mb-2">
           DETALLES DEL HISTORIAL DE ASISTENCIAS:
         </h2>
@@ -247,12 +250,12 @@ const PanelDeControl = () => {
         <table className="w-full border-collapse">
           <thead>
             <tr className="bg-gray-200">
-              <th className="border px-4 py-2">N°</th>
-              <th className="border px-4 py-2">Fecha de Solicitud</th>
-              <th className="border px-4 py-2">Agente</th>
-              <th className="border px-4 py-2">Cliente</th>
-              <th className="border px-4 py-2">Problema</th>
-              <th className="border px-4 py-2">Observaciones</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">N°</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Fecha de Solicitud</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Agente</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Cliente</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Problema</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Observaciones</th>
             </tr>
           </thead>
           <tbody>

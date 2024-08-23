@@ -31,7 +31,7 @@ export const MapaRelevamiento: React.FC<MapaProps> = ({
     if (isLoaded && mapRef.current) {
       const mapInstance = new google.maps.Map(mapRef.current, {
         center: coordinates,
-        zoom: 15,
+        zoom: 8,
       });
       setMap(mapInstance);
     }

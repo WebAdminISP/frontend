@@ -16,7 +16,7 @@ const BajaServicio = () => {
   const token = userData?.tokenData?.token;
   const isMobile = useIsMobile(); // Usa el hook para detectar si es móvil
   const divClasses = `p-3 mt-10 transition-all duration-1000 ${
-    isMobile ? "" : btnFixed ? "ml-[270px]" : "ml-24"
+    isMobile ? "" : btnFixed ? "ml-[40%]" : "ml-[36%]"
   }`;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -52,10 +52,10 @@ const BajaServicio = () => {
 
   return (
     <div className={divClasses}>
-      <div className="max-w-lg p-8 bg-white rounded-md shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Dar de Baja Servicio</h2>
+      <div className="max-w-lg p-8 bg-white rounded-md shadow-md mt-20  dark:bg-gray-600 dark:opacity-60">
+        <h2 className="text-2xl font-bold mb-4 dark:text-orange-300">Dar de Baja Servicio</h2>
         {confirmation ? (
-          <p className="text-green-600">
+          <p className="text-green-300">
             La solicitud de baja se ha realizado exitosamente
           </p>
         ) : (
@@ -63,14 +63,14 @@ const BajaServicio = () => {
             <div className="mb-4">
               <label
                 htmlFor="serviceId"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-blue-300"
               >
                 ID del Cliente
               </label>
               <input
                 type="text"
                 id="serviceId"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:text-blue-800"
                 value={userData?.userData.id}
                 readOnly
                 required
@@ -80,13 +80,13 @@ const BajaServicio = () => {
             <div className="mb-4">
               <label
                 htmlFor="reason"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-blue-300"
               >
                 Razón para Dar de Baja
               </label>
               <select
                 id="reason"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:text-blue-800"
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
                 required
@@ -106,14 +106,14 @@ const BajaServicio = () => {
               <div className="mb-4">
                 <label
                   htmlFor="razonBaja"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-700 dark:text-blue-300"
                 >
                   Menciona otra razón de la baja
                 </label>
                 <input
                   type="text"
                   id="razonBaja"
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:text-blue-800"
                   value={razonBaja}
                   onChange={(e) => setRazonBaja(e.target.value)}
                   required
@@ -124,13 +124,13 @@ const BajaServicio = () => {
             <div className="mb-4">
               <label
                 htmlFor="details"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-blue-300"
               >
                 Detalles Adicionales
               </label>
               <textarea
                 id="details"
-                className="mt-1 block w-full h-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full h-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:text-blue-800"
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
               />

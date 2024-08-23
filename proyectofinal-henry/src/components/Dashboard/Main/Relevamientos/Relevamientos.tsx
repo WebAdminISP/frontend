@@ -112,28 +112,28 @@ const Relevamientos: React.FC = () => {
                     .includes(relevamiento.email) && (
                     <div
                       key={relevamiento.id}
-                      className="bg-white shadow-lg rounded-lg p-6 mb-6 cursor-pointer"
+                      className="bg-white shadow-lg rounded-lg p-6 mb-6 cursor-pointer dark:bg-gray-600 dark:opacity-60"
                       onClick={() => handleCardClick(relevamiento)}
                     >
-                      <h1 className="text-2xl font-bold mb-4 text-center">
+                      <h1 className="text-2xl font-bold mb-4 text-center dark:text-orange-300">
                         Solicitud de Servicios de {relevamiento.nombre}
                       </h1>
                       <div className="space-y-4">
                         <div className="flex items-center">
                           <span className="font-semibold w-1/3">Nombre:</span>
-                          <span className="text-blue-700">
+                          <span className="text-blue-700 dark:text-blue-200">
                             {relevamiento.nombre}
                           </span>
                         </div>
                         <div className="flex items-center">
                           <span className="font-semibold w-1/3">Correo:</span>
-                          <span className="text-blue-700">
+                          <span className="text-blue-700 dark:text-blue-200">
                             {relevamiento.email}
                           </span>
                         </div>
                         <div className="flex items-center">
                           <span className="font-semibold w-1/3">Teléfono:</span>
-                          <span className="text-blue-700">
+                          <span className="text-blue-700 dark:text-blue-200">
                             {relevamiento.telefono}
                           </span>
                         </div>
@@ -141,7 +141,7 @@ const Relevamientos: React.FC = () => {
                           <span className="font-semibold w-1/3">
                             Dirección:
                           </span>
-                          <span className="text-blue-700">
+                          <span className="text-blue-700 dark:text-blue-200">
                             {relevamiento.direccion}
                           </span>
                         </div>
@@ -149,7 +149,7 @@ const Relevamientos: React.FC = () => {
                           <span className="font-semibold w-1/3">
                             Provincia:
                           </span>
-                          <span className="text-blue-700">
+                          <span className="text-blue-700 dark:text-blue-200">
                             {relevamiento.provincia.nombre}
                           </span>
                         </div>
@@ -157,25 +157,25 @@ const Relevamientos: React.FC = () => {
                           <span className="font-semibold w-1/3">
                             Localidad:
                           </span>
-                          <span className="text-blue-700">
+                          <span className="text-blue-700 dark:text-blue-200">
                             {relevamiento.localidad.nombre}
                           </span>
                         </div>
                         <div className="flex items-center">
                           <span className="font-semibold w-1/3">Mensaje:</span>
-                          <span className="text-blue-700">
+                          <span className="text-blue-700 dark:text-blue-200">
                             {relevamiento.razon}
                           </span>
                         </div>
                         <div className="flex items-center">
                           <span className="font-semibold w-1/3">Latitud</span>
-                          <span className="text-blue-700">
+                          <span className="text-blue-700 dark:text-blue-200">
                             {relevamiento.latitud}
                           </span>
                         </div>
                         <div className="flex items-center">
                           <span className="font-semibold w-1/3">Longitud</span>
-                          <span className="text-blue-700">
+                          <span className="text-blue-700 dark:text-blue-200">
                             {relevamiento.longitud}
                           </span>
                         </div>

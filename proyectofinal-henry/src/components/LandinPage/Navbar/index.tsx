@@ -12,7 +12,7 @@ export const Navbar: React.FC = () => {
   };
   return (
     <>
-      <nav className="bg-customBlue border-gray-200 dark:bg-gray-900 font-roboto fixed top-0 left-0 right-0 z-50">
+      <nav className="bg-customBlue border-gray-200 font-roboto fixed top-0 left-0 right-0 z-50">
         <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
           <a
             href="/"

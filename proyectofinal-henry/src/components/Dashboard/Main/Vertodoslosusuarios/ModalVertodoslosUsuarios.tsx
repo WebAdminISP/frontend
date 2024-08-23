@@ -88,7 +88,7 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({
   return (
     <>
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-        <div className="bg-white p-4 rounded-lg shadow-lg w-4/5 md:w-1/3 max-h-screen overflow-y-auto">
+        <div className="bg-white p-4 rounded-lg shadow-lg w-4/5 md:w-1/3 max-h-screen overflow-y-auto dark:bg-gray-600">
           <h2 className="text-2xl font-bold mb-4">Detalles del Usuario</h2>
           <p>
             <strong>ID:</strong> {user.id}

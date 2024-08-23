@@ -54,7 +54,7 @@ const ModalImagen: React.FC<ModalImagenProps> = ({
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-4 rounded-lg shadow-lg max-w-md w-full">
+      <div className="bg-white p-4 rounded-lg shadow-lg max-w-md w-full dark:bg-gray-600">
         <div className="flex justify-end">
           <button
             onClick={closeModal}
@@ -64,12 +64,12 @@ const ModalImagen: React.FC<ModalImagenProps> = ({
           </button>
         </div>
         <div className="text-center">
-          <h2 className="text-xl font-bold mb-4">Cambiar Imagen de Perfil</h2>
+          <h2 className="text-xl font-bold mb-4 dark:text-orange-300">Cambiar Imagen de Perfil</h2>
           <div className="relative mb-4 overflow-hidden">
             <input
               type="file"
               onChange={handleFileChange}
-              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 overflow-hidden"
+              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 overflow-hidden dark:text-gray-200"
             />
           </div>
           <button

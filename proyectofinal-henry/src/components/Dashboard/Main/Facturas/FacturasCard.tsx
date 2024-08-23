@@ -121,7 +121,7 @@ const FacturasList: React.FC = () => {
               <div
                 key={factura.id}
                 className={`grid grid-cols-4 gap-4 p-4 mb-2 border rounded-md cursor-pointer hover:bg-gray-100 ${
-                  factura.pagado ? "bg-green-100" : "bg-red-100"
+                  factura.pagado ? "bg-green-100 dark:bg-gray-600 dark:opacity-60  dark:text-green-300" : "bg-red-100 dark:bg-gray-600 dark:opacity-60 dark:text-red-300"
                 }`}
                 onClick={() => handleOpenModal(factura)}
               >
