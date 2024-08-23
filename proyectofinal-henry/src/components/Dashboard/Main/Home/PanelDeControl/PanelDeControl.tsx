@@ -11,6 +11,8 @@ import { fetchAllUsers } from "@/services/allUsers.services";
 import { fetchRelevamientos } from "@/services/relevamientos.services";
 import { fetchAsistencias } from "@/services/Soporte.services";
 import { Maps } from "./Maps";
+import { allUsers } from "@/types/allUsers.types";
+import { RelevamientoData } from "@/types/relevamiento.types";
 
 const GarphicBarsAdmin = dynamic(() => import("./GarphicBarsAdmin"), {
   ssr: false,
@@ -31,6 +33,7 @@ const PanelDeControl = () => {
   const { userData } = useAuth();
   const [userId, setUserId] = useState<string | undefined>();
   const [asistenciaId, setAsistenciaId] = useState<string | undefined>();
+  const [users, setUsers] = React.useState<allUsers[]>([]);
   const [totalUsers, setTotalUsers] = useState<number>(0);
   const [totalRelevamientos, setTotalRelevamientos] = useState<number>(0);
   const token = userData?.tokenData.token;
@@ -85,6 +88,7 @@ const PanelDeControl = () => {
     const getUsers = async () => {
       if (token) {
         const users = await fetchAllUsers(token);
+        setUsers(users);
         setTotalUsers(users.length);
       } // Establece el total de usuarios
     };
@@ -92,10 +96,16 @@ const PanelDeControl = () => {
     getUsers();
   }, [token]);
 
+  
+
   useEffect(() => {
     const getRelevamientos = async () => {
-      const relevamientos = await fetchRelevamientos(1, 999);
-      setTotalRelevamientos(relevamientos.length); // Establece el total de relevamientos
+      const relevamientos: RelevamientoData[] = await fetchRelevamientos(1, 999);
+      const filteredRelevamientos = relevamientos.filter(relevamiento =>
+        !users.some(user => user.email === relevamiento.email)
+      );
+      setTotalRelevamientos(filteredRelevamientos.length);
+      console.log('filteredRelevamientos', filteredRelevamientos) // Establece el total de relevamientos
     };
 
     getRelevamientos();

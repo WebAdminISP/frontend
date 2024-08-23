@@ -10,6 +10,7 @@ const UserProfile: React.FC = () => {
   const { userData } = useAuth();
   const { btnFixed } = useSidebarContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isMobile = useIsMobile(); // Usa el hook para detectar si es móvil
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -64,7 +65,6 @@ const UserProfile: React.FC = () => {
     const firstLetter = firstLetterName(name);
     return letterColors[firstLetter] || "bg-gray-500"; // color por defecto si no coincide
   };
-  const isMobile = useIsMobile(); // Usa el hook para detectar si es móvil
   const divClasses = `p-3 mt-10 transition-all duration-1000 ${
     isMobile ? "" : btnFixed ? "ml-[270px]" : "ml-24"
   }`;
