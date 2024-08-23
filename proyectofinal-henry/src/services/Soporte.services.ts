@@ -41,7 +41,7 @@ export const sendAssistanceRequest = async (
 
 
 
-export const fetchAsistencias = async (token: string, page: number = 1, limit: number = 10) => {
+export const fetchAsistencias = async (token: string, page: number = 1, limit: number = 99) => {
   try {
     const response = await axios.get(`${apiURL}/asistencias`, {
       headers: {
