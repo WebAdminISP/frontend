@@ -36,7 +36,7 @@ const PanelDeControl = () => {
   const [users, setUsers] = React.useState<allUsers[]>([]);
   const [totalUsers, setTotalUsers] = useState<number>(0);
   const [totalRelevamientos, setTotalRelevamientos] = useState<number>(0);
-  const token = userData?.tokenData.token;
+  const token = userData ? userData.tokenData.token : "";
   const [asistencias, setAsistencias] = useState<Asistencia[]>([]);
 
   let i = 1;
@@ -84,34 +84,32 @@ const PanelDeControl = () => {
     return letterColors[firstLetter] || "bg-gray-500"; // color por defecto si no coincide
   };
 
+ 
   useEffect(() => {
-    const getUsers = async () => {
-      if (token) {
-        const users = await fetchAllUsers(token);
+    const getData = async () => {
+      try {
+        // Llamadas API en paralelo
+        const [users, relevamientos]: [users: allUsers[], relevamientos: RelevamientoData[]] = await Promise.all([
+          fetchAllUsers(token),
+          fetchRelevamientos(1, 999)
+        ]);
+        
         setUsers(users);
         setTotalUsers(users.length);
-      } // Establece el total de usuarios
-    };
-
-    getUsers();
-  }, [token]);
-
   
+        const filteredRelevamientos = relevamientos.filter(relevamiento =>
+          !users.some(user => user.email === relevamiento.email)
+        );
+        setTotalRelevamientos(filteredRelevamientos.length);
 
-  useEffect(() => {
-    const getRelevamientos = async () => {
-      const relevamientos: RelevamientoData[] = await fetchRelevamientos(1, 999);
-      const filteredRelevamientos = relevamientos.filter(relevamiento =>
-        !users.some(user => user.email === relevamiento.email)
-      );
-      setTotalRelevamientos(filteredRelevamientos.length);
-      console.log('users', users) // Establece el total de relevamientos
-      console.log('filteredRelevamientos', filteredRelevamientos) // Establece el total de relevamientos
+      } catch (error) {
+        console.error('Error al obtener los datos', error);
+      }
     };
-
-    getRelevamientos();
-  }, [users]);
-
+  
+    getData();
+  }, [token]);
+     
   useEffect(() => {
     const getRelevamientos = async () => {
       if (userData) {
