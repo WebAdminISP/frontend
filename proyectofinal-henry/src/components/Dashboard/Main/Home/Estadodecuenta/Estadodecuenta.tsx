@@ -207,7 +207,7 @@ const Estadodecuenta = () => {
       </div>
 
       {/* Segundo Bloque: Gráfico y Total de Factura */}
-      <div className=" grid-cols-2 gap-4 hidden md:grid">
+      <div className="grid md:grid-cols-1 xl:grid-cols-2 gap-4 ">
         {/* Grid Izquierdo: Gráfico */}
         <div className="h-[420px]  bg-gray-100 border rounded-lg p-4">
           <h2 className="text-lg font-semibold mb-2">
@@ -218,7 +218,7 @@ const Estadodecuenta = () => {
         </div>
         {/* Grid Derecho: Total de Factura */}
         <Link href={"/dashboard/pagos"}>
-          <div className="hidden md:block h-[420px] mb-6 p-4 bg-gray-100 border rounded-lg">
+          <div className="md:block h-[420px] mb-6 p-4 bg-gray-100 border rounded-lg">
             <h2 className="text-lg font-bold mb-2">
               DETALLES DEL TOTAL A PAGAR:
             </h2>
@@ -272,7 +272,7 @@ const Estadodecuenta = () => {
       </div>
 
       {/* Tercer Bloque: HISTORIAL DE FACTURAS */}
-      <div className="hidden md:block mb-6 p-16 bg-gray-100 border rounded-lg">
+      <div className="hidden lg:block mb-6 p-16 bg-gray-100 border rounded-lg">
         <h2 className="text-lg font-bold mb-2">
           DETALLES DEL HISTORIAL DE FACTURACIÓN:
         </h2>

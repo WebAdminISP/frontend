@@ -7,7 +7,7 @@ const apiURL = process.env.NEXT_PUBLIC_API_URL;
 export const fetchEquipos = async (token: string): Promise<Equipos[]> => {
   try {
     const response = await axios.get(
-      `${apiURL}/equipos?page=1&limit=20`,
+      `${apiURL}/equipos?page=1&limit=99`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

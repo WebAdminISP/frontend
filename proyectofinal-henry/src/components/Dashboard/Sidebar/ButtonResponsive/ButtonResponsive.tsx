@@ -10,7 +10,7 @@ const ButtonResponsive: React.FC<ButtonResponsiveProps> = ({ onClick }) => {
       onClick={onClick}
       aria-controls="sidebar-multi-level-sidebar"
       type="button"
-      className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      className="flex fixed items-center start-0 z-50 top-1 p-2 mt-2 ms-3 text-sm bg-gray-400 h-10 sm:hidden text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
     >
       <span className="sr-only">Open sidebar</span>
       <svg

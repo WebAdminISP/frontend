@@ -205,7 +205,7 @@ const PanelDeControl = () => {
       </div>
 
       {/* Segundo Bloque: Gráfico y Total de Factura */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-1  xl:grid-cols-2 gap-4">
         {/* Grid Izquierdo: Gráfico */}
         <div className="h-[420px]  bg-gray-100 border rounded-lg p-4">
           <h2 className="text-lg font-semibold mb-2">
