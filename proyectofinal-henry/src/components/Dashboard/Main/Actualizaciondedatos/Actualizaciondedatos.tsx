@@ -4,7 +4,7 @@ import { useSidebarContext } from "@/context/SidebarContext";
 import { sendAssistanceRequest } from "@/services/Soporte.services";
 import React, { useState } from "react";
 
-const BajaServicio = () => {
+const Actualizaciondedatos = () => {
   const { userData } = useAuth();
   const { btnFixed } = useSidebarContext();
   const [reason, setReason] = useState("Actualizacion de datos");
@@ -124,4 +124,4 @@ const BajaServicio = () => {
   );
 };
 
-export default BajaServicio;
+export default Actualizaciondedatos;
