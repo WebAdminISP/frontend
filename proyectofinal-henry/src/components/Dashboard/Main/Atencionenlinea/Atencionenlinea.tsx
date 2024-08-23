@@ -1,4 +1,5 @@
 'use client'
+
 import { useAuth } from '@/context/AuthContext';
 import React, { useEffect, useState } from 'react'
 import AdminChat from './AdminChat';
@@ -26,4 +27,3 @@ useEffect(() => {
 }
 
 export default Atencionenlinea
-  

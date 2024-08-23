@@ -22,7 +22,7 @@ export const Seccion: React.FC = () => {
       (position) => {
         const { latitude, longitude } = position.coords;
         setCoordinates({ lat: latitude, lng: longitude });
-        setHasCoordinates(true); // Marca que se han obtenido coordenadas
+        setHasCoordinates(true);
         console.log("Coordenadas obtenidas:", {
           lat: latitude,
           lng: longitude,
@@ -49,21 +49,24 @@ export const Seccion: React.FC = () => {
     >
       <div className="lg:w-1/3 flex flex-col items-center text-center lg:text-left">
         <h1 className="text-white text-4xl mt-10 lg:mt-0">
-          ¿Necesitas más ayuda?
+          ¿Deseas sabes si tienes cobertura en tu zona?
         </h1>
         <p className="text-white text-2xl mt-5 lg:mr-5">
-          Con gusto un ejecutivo te ayudará a contratar nuestros servicios
+          Con gusto nuestro servicio de coordenadas lo verificara por ti
         </p>
-        <button
+        {/* <button
           type="submit"
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 mt-5"
         >
           Contáctanos
-        </button>
+        </button> */}
 
-        <h1 className="text-white text-4xl mt-10 lg:mt-0">
-          Busca tus coordenadas
+        <h1 className="text-white text-4xl mt-10 lg:mt-5">
+          haz click en el boton para cargar tus coordenadas
         </h1>
+        <p className="text-white text-m mt-10 lg:mt-5">
+          mueve el pin del mapa si no te posicionó correctamente
+        </p>
         <br />
 
         {coordinates && (
@@ -76,9 +79,9 @@ export const Seccion: React.FC = () => {
 
         <button
           type="button"
-          className={`px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 mt-5 ${
+          className={`px-4 py-2 bg-yellow-400 text-black rounded-md hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-300 mt-5 ${
             isLocating || hasCoordinates ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+          } shadow-md border border-yellow-500`}
           onClick={handleLocationChange}
           disabled={isLocating || hasCoordinates} // Deshabilita el botón si ya se han obtenido coordenadas
         >

@@ -1,9 +1,10 @@
 'use client'
+
 import React, { useState } from 'react';
 import Notifications from '../../Notifications/Notifications';
 import { useAuth } from '@/context/AuthContext';
-
 import { useConnect } from '@/context/SocketContext';
+
 
 const ButtonNotification = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -21,9 +22,11 @@ const ButtonNotification = () => {
         className="relative flex h-8 w-8 items-center justify-center rounded-full border-0 bg-gray-400/30 text-gray-300 mr-4"
         onClick={toggleDrawer}
       >
+
         {rooms.length > 0 && (
       <span className="absolute mt-[-3px] mr-[-3px] top-0 right-0 flex items-center justify-center h-4 w-4 rounded-full bg-red-500 text-white text-xs ">
         {rooms.length}
+
       </span>
     )}
         <span className={`${!notifying && 'hidden'} absolute -top-0.5 right-0 z-1 h-2 w-2 rounded-full bg-meta-1`}>
@@ -38,7 +41,7 @@ const ButtonNotification = () => {
          <div className="fixed inset-0 flex justify-end z-50">
             <div className="fixed inset-0 bg-black opacity-50" onClick={toggleDrawer}></div>
             <Notifications rooms={rooms}/>
-        </div>
+         </div>
       }
     </div>
   );

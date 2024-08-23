@@ -22,13 +22,16 @@ interface ChatProps {
 const Chat: React.FC<ChatProps> = ({ messages, roomId, isConnected, warningMessages }) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+
   const filteredMessages = messages.filter(msg => msg.roomId === roomId);
+
 
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
   }, [filteredMessages]);
+
 
   return (
     <>

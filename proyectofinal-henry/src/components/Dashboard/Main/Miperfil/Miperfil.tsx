@@ -82,13 +82,6 @@ const getColorByFirstLetter = (name: string) => {
 
       <br/>
 
-      <Link href="./ActualizarDatosPerfil" className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300">
-        
-          Actualizar Datos
-    
-      </Link>
-
-
     </div>
 
 

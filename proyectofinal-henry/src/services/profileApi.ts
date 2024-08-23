@@ -9,7 +9,7 @@ export const sendProfileChangeRequest = async (
       nombre: string,
       telefono: string,
       direccion: string,
-      documento: string,
+      documento: number,
       email: string,
       codigoPostal: string
   }

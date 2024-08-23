@@ -64,7 +64,7 @@ export const sidebarOptionsUser = [
     options:[
             {optionName: "Mi Cuenta",
              router: false,   
-             subOptions: [{subOptionsName: "Proxima facturación", router: true}, // PENDIENTE
+             subOptions: [ // PENDIENTE
                           {subOptionsName: "Mi Plan", router: true}] // OK
             },    
 
