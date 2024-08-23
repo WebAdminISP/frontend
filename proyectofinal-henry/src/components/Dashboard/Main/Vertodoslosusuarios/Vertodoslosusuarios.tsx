@@ -110,14 +110,14 @@ const Vertodoslosusuarios = () => {
   return (
     <div className={divClasses}>
       <div>
-        <h2 className="text-xl font-semibold text-gray-700">Usuarios</h2>
+        <h2 className="text-xl font-semibold text-gray-700 mt-8">Usuarios</h2>
         <div className="flex flex-wrap gap-4">
           {users
             .filter((user) => !user.isAdmin)
             .map((user) => (
               <div
                 key={user.id}
-                className="bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer p-4 w-full sm:w-80 md:w-96"
+                className="bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer p-4 w-full sm:w-80 md:w-96  dark:bg-gray-600 dark:opacity-60"
                 onClick={() => handleUserClick(user)}
               >
                 <div className="flex items-center gap-4">
@@ -134,27 +134,27 @@ const Vertodoslosusuarios = () => {
                           user.nombre
                         )} text-white`}
                       >
-                        <p className="text-2xl">
+                        <p className="text-2xl ">
                           {firstLetterName(user.nombre)}
                         </p>
                       </button>
                     )}
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold text-gray-700">
+                    <h2 className="text-xl font-semibold text-gray-700 dark:text-orange-300">
                       {user.nombre}
                     </h2>
-                    <p className="text-gray-600">{user.email}</p>
-                    <p className="text-gray-500">
+                    <p className="text-gray-600 dark:text-blue-300">{user.email}</p>
+                    <p className="text-gray-500 dark:text-gray-100">
                       <strong>Teléfono:</strong> {user.telefono}
                     </p>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 dark:text-gray-100">
                       <strong>Dirección:</strong> {user.direccion}
                     </p>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 dark:text-gray-100">
                       <strong>Razón Social:</strong> {user.razonSocial}
                     </p>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 dark:text-gray-100">
                       <strong>Documento:</strong> {user.documento}
                     </p>
                   </div>
@@ -172,7 +172,7 @@ const Vertodoslosusuarios = () => {
             .map((user) => (
               <div
                 key={user.id}
-                className="bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer p-4 w-full sm:w-80 md:w-96"
+                className="bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300 cursor-pointer p-4 w-full sm:w-80 md:w-96 dark:bg-gray-600 dark:opacity-60"
                 onClick={() => handleUserClick(user)}
               >
                 <div className="flex items-center gap-4">
@@ -196,20 +196,20 @@ const Vertodoslosusuarios = () => {
                     )}
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold text-gray-700">
+                    <h2 className="text-xl font-semibold text-gray-700 dark:text-orange-300">
                       {user.nombre}
                     </h2>
-                    <p className="text-gray-600">{user.email}</p>
-                    <p className="text-gray-500">
+                    <p className="text-gray-600 dark:text-blue-300">{user.email}</p>
+                    <p className="text-gray-500 dark:text-gray-100">
                       <strong>Teléfono:</strong> {user.telefono}
                     </p>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 dark:text-gray-100">
                       <strong>Dirección:</strong> {user.direccion}
                     </p>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 dark:text-gray-100">
                       <strong>Razón Social:</strong> {user.razonSocial}
                     </p>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 dark:text-gray-100">
                       <strong>Documento:</strong> {user.documento}
                     </p>
                   </div>

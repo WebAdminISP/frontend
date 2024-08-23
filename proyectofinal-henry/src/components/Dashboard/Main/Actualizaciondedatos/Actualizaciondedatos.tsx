@@ -109,7 +109,7 @@ const BajaServicio = () => {
         btnFixed ? "ml-[40%]" : "ml-[33%]"
       }`}
     >
-      <div className="max-w-lg p-8 bg-white rounded-md shadow-md">
+      <div className="max-w-lg p-8 bg-white rounded-md shadow-md dark:bg-gray-600 dark:opacity-90 ">
         <h2 className="text-2xl font-bold mb-4">Actualizacion de datos</h2>
         {confirmation ? (
           <p className="text-green-600">
@@ -120,14 +120,14 @@ const BajaServicio = () => {
             <div className="mb-4">
               <label
                 htmlFor="serviceId"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-400"
               >
                 ID del Cliente
               </label>
               <input
                 type="text"
                 id="serviceId"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:text-blue-800"
                 value={userData?.userData.id}
                 readOnly
                 required
@@ -137,14 +137,14 @@ const BajaServicio = () => {
             <div className="mb-4">
               <label
                 htmlFor="reason"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-400"
               >
                 Razón
               </label>
               <input
                 type="text"
                 id="reason"
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:text-blue-800"
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
                 required
@@ -154,13 +154,13 @@ const BajaServicio = () => {
             <div className="mb-4">
               <label
                 htmlFor="details"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-400"
               >
                 Comentarios
               </label>
               <textarea
                 id="details"
-                className="mt-1 block w-full h-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full h-48 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:text-blue-800"
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
               />
@@ -168,7 +168,7 @@ const BajaServicio = () => {
 
             {Object.keys(formData).map((field) => (
               <div key={field} className="mb-4">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                   <input
                     type="checkbox"
                     checked={selectedFields.includes(field as FormField)}
@@ -184,7 +184,7 @@ const BajaServicio = () => {
                     onChange={(e) =>
                       handleInputChange(field as FormField, e.target.value)
                     }
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:text-blue-800"
                   />
                 )}
               </div>

@@ -66,7 +66,7 @@ const Estadodecuenta = () => {
       {/* Primer Bloque: Datos del Usuario y Foto de Perfil */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Link href={"/dashboard/miperfil"}>
-          <div className="mb-6 p-4 bg-gray-100 border rounded-lg">
+          <div className="mb-6 p-4 bg-gray-100 border rounded-lg dark:bg-gray-600 dark:opacity-60">
             <h2 className="text-lg font-bold mb-2">DATOS DE USUARIO:</h2>
             <div className="grid grid-cols-1 md:grid-cols-3">
               <div className="flex justify-center items-center rounded-lg p-4">
@@ -90,22 +90,22 @@ const Estadodecuenta = () => {
               </div>
               <div className="col-span-2 md:col-span-2 mt-4 md:mt-0">
                 <p className="font-semibold">
-                  <span className="text-blue-900 font-bold">Nombre: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Nombre: </span>{" "}
                   &nbsp;
                   {userData?.userData.nombre}
                 </p>
                 <p className="font-semibold">
-                  <span className="text-blue-900 font-bold">Email: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Email: </span>{" "}
                   &nbsp;
                   {userData?.userData.email}
                 </p>
                 <p className="font-semibold">
-                  <span className="text-blue-900 font-bold">Teléfono: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Teléfono: </span>{" "}
                   &nbsp;
                   {userData?.userData.telefono}
                 </p>
                 <p className="font-semibold">
-                  <span className="text-blue-900 font-bold">Dirección: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Dirección: </span>{" "}
                   &nbsp;
                   {userData?.userData.direccion}
                 </p>
@@ -115,7 +115,7 @@ const Estadodecuenta = () => {
         </Link>
 
         <Link href={"/dashboard/miplan"}>
-          <div className="mb-6 p-4 bg-gray-100 border rounded-lg">
+          <div className="mb-6 p-4 bg-gray-100 border rounded-lg dark:bg-gray-600 dark:opacity-60">
             <h2 className="text-lg font-bold mb-2">DATOS DEL SERVICIO:</h2>
             <div className="grid grid-cols-1 md:grid-cols-3">
               <div className="flex justify-center items-center rounded-lg p-4">
@@ -127,24 +127,24 @@ const Estadodecuenta = () => {
               </div>
               <div className="col-span-2 md:col-span-2 mt-4 md:mt-0">
                 <p className="font-semibold">
-                  <span className="text-blue-900 font-bold">Servicio: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Servicio: </span>{" "}
                   &nbsp;
                   {ultimaFacturaNoPagada?.concepto}
                 </p>
                 <p className="font-semibold">
-                  <span className="text-blue-900 font-bold">
+                  <span className="text-blue-900 font-bold dark:text-orange-300">
                     Dirección de Instalación:{" "}
                   </span>{" "}
                   &nbsp;
                 </p>
                 <p className="font-semibold">
-                  <span className="text-blue-900 font-bold">
+                  <span className="text-blue-900 font-bold dark:text-orange-300">
                     Email de Instalación:{" "}
                   </span>{" "}
                   &nbsp;
                 </p>
                 <p className="font-semibold">
-                  <span className="text-blue-900 font-bold">
+                  <span className="text-blue-900 font-bold dark:text-orange-300">
                     Telefono de Instalación:{" "}
                   </span>{" "}
                   &nbsp;
@@ -155,7 +155,7 @@ const Estadodecuenta = () => {
         </Link>
 
         <Link href={"/dashboard/facturas"}>
-          <div className="mb-6 p-4 bg-gray-100 border rounded-lg">
+          <div className="mb-6 p-4 bg-gray-100 border rounded-lg dark:bg-gray-600 dark:opacity-60">
             <h2 className="text-lg font-bold mb-2">PRÓXIMA FACTURA:</h2>
             <div className="grid grid-cols-3">
               <div className="flex justify-center items-center rounded-lg p-4">
@@ -167,11 +167,11 @@ const Estadodecuenta = () => {
               </div>
               <div className="col-span-2">
                 <p className=" font-semibold ">
-                  <span className="text-blue-900 font-bold">Mes: </span> &nbsp;{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Mes: </span> &nbsp;{" "}
                   {ultimaFacturaNoPagada?.observaciones}
                 </p>
                 <p className="font-semibold ">
-                  <span className="text-blue-900 font-bold">
+                  <span className="text-blue-900 font-bold dark:text-orange-300">
                     Fecha Emisión:{" "}
                   </span>{" "}
                   &nbsp;{" "}
@@ -184,7 +184,7 @@ const Estadodecuenta = () => {
                   })}
                 </p>
                 <p className="font-semibold ">
-                  <span className="text-blue-900 font-bold">
+                  <span className="text-blue-900 font-bold dark:text-orange-300">
                     Fecha Vencimiento:{" "}
                   </span>{" "}
                   &nbsp;{" "}
@@ -197,7 +197,7 @@ const Estadodecuenta = () => {
                   })}
                 </p>
                 <p className="font-semibold ">
-                  <span className="text-blue-900 font-bold">Importe: </span>{" "}
+                  <span className="text-blue-900 font-bold dark:text-orange-300">Importe: </span>{" "}
                   &nbsp; $ {ultimaFacturaNoPagada?.importe}
                 </p>
               </div>
@@ -209,7 +209,7 @@ const Estadodecuenta = () => {
       {/* Segundo Bloque: Gráfico y Total de Factura */}
       <div className="grid md:grid-cols-1 xl:grid-cols-2 gap-4 ">
         {/* Grid Izquierdo: Gráfico */}
-        <div className="h-[420px]  bg-gray-100 border rounded-lg p-4">
+        <div className="h-[420px]  bg-gray-100 border rounded-lg p-4 dark:bg-gray-600 dark:opacity-60">
           <h2 className="text-lg font-semibold mb-2">
             HISTORIAL DE FACTURACIÓN
           </h2>
@@ -218,27 +218,27 @@ const Estadodecuenta = () => {
         </div>
         {/* Grid Derecho: Total de Factura */}
         <Link href={"/dashboard/pagos"}>
-          <div className="md:block h-[420px] mb-6 p-4 bg-gray-100 border rounded-lg">
+          <div className="md:block h-[420px] mb-6 p-4 bg-gray-100 border rounded-lg dark:bg-gray-600 dark:opacity-60">
             <h2 className="text-lg font-bold mb-2">
               DETALLES DEL TOTAL A PAGAR:
             </h2>
             <br />
             <p className="font-semibold">
-              <span className="text-blue-900 font-bold">Servicio: </span> &nbsp;{" "}
+              <span className="text-blue-900 font-bold dark:text-orange-300">Servicio: </span> &nbsp;{" "}
               {ultimaFacturaNoPagada?.concepto}
             </p>
             <p className="font-semibold">
-              <span className="text-blue-900 font-bold">
+              <span className="text-blue-900 font-bold dark:text-orange-300">
                 Cantidad de Equipos:{" "}
               </span>{" "}
               &nbsp;{" "}
             </p>
             <p className="font-semibold">
-              <span className="text-blue-900 font-bold">Mes: </span> &nbsp;{" "}
+              <span className="text-blue-900 font-bold dark:text-orange-300">Mes: </span> &nbsp;{" "}
               {ultimaFacturaNoPagada?.observaciones}
             </p>
             <p className="font-semibold">
-              <span className="text-blue-900 font-bold">Fecha Emisión: </span>{" "}
+              <span className="text-blue-900 font-bold dark:text-orange-300">Fecha Emisión: </span>{" "}
               &nbsp;{" "}
               {new Date(
                 ultimaFacturaNoPagada?.fechaGen ?? ""
@@ -272,7 +272,7 @@ const Estadodecuenta = () => {
       </div>
 
       {/* Tercer Bloque: HISTORIAL DE FACTURAS */}
-      <div className="hidden lg:block mb-6 p-16 bg-gray-100 border rounded-lg">
+      <div className="hidden lg:block mb-6 p-16 bg-gray-100 border rounded-lg dark:bg-gray-600 dark:opacity-60">
         <h2 className="text-lg font-bold mb-2">
           DETALLES DEL HISTORIAL DE FACTURACIÓN:
         </h2>
@@ -282,13 +282,13 @@ const Estadodecuenta = () => {
         <table className="w-full border-collapse">
           <thead>
             <tr className="bg-gray-200">
-              <th className="border px-4 py-2">N°</th>
-              <th className="border px-4 py-2">Fecha de Emisión</th>
-              <th className="border px-4 py-2">Mes Correspondiente</th>
-              <th className="border px-4 py-2">Vencimiento</th>
-              <th className="border px-4 py-2">Concepto</th>
-              <th className="border px-4 py-2">Importe</th>
-              <th className="border px-4 py-2">Estado</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">N°</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Fecha de Emisión</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Mes Correspondiente</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Vencimiento</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Concepto</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Importe</th>
+              <th className="border px-4 py-2 dark:text-orange-300 dark:bg-gray-800">Estado</th>
             </tr>
           </thead>
           <tbody>

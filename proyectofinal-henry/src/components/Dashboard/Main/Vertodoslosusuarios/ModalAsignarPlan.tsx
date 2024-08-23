@@ -101,7 +101,7 @@ const AssignPlanModal: React.FC<AssignPlanModalProps> = ({
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-4 rounded-lg shadow-lg w-4/5 md:w-1/3 max-h-screen overflow-y-auto">
+      <div className="bg-white p-4 rounded-lg shadow-lg w-4/5 md:w-1/3 max-h-screen overflow-y-auto dark:bg-gray-600">
         <h2 className="text-2xl font-bold mb-4">Seleccionar Plan</h2>
         {loading ? (
           <p>Cargando planes...</p>
@@ -111,8 +111,8 @@ const AssignPlanModal: React.FC<AssignPlanModalProps> = ({
           planes.map((plan) => (
             <div
               key={plan.id}
-              className={`p-2 border ${
-                selectedPlan && selectedPlan.id === plan.id ? "bg-gray-200" : ""
+              className={`p-2 border dark:border-gray-600 ${
+                selectedPlan && selectedPlan.id === plan.id ? "bg-gray-200 dark:text-blue-900" : " dark:bg-gray-400 dark:text-blue-900"
               } cursor-pointer`}
               onClick={() => setSelectedPlan(plan)}
             >

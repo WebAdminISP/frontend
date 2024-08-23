@@ -70,7 +70,7 @@ const UserProfile: React.FC = () => {
   }`;
   return (
     <div className={divClasses}>
-      <div className="max-w-2xl mx-auto mt-6 bg-white shadow-md rounded-lg p-6">
+      <div className="max-w-2xl mx-auto mt-20 bg-white shadow-md rounded-lg p-6 dark:bg-gray-600 dark:opacity-60">
         <div className="flex gap-4 items-center mb-6">
           <a onClick={openModal}>
             {userData.userData.imgUrl !== "https://exmple-image.webp" ? (
@@ -92,35 +92,35 @@ const UserProfile: React.FC = () => {
             )}
           </a>
 
-          <h1 className="text-xl font-bold">{userData.userData.nombre}</h1>
+          <h1 className="text-xl font-bold dark:text-orange-300">{userData.userData.nombre}</h1>
         </div>
-        <div className="text-lg text-gray-700">
+        <div className="text-lg text-gray-700 dark:text-blue-200">
           <p>
-            <strong className="text-blue-900">Email:</strong>{" "}
+            <strong className="text-blue-900 dark:text-blue-400">Email:</strong>{" "}
             {userData.userData.email}
           </p>
           <p>
-            <strong className="text-blue-900">Teléfono:</strong>{" "}
+            <strong className="text-blue-900 dark:text-blue-400">Teléfono:</strong>{" "}
             {userData.userData.telefono}
           </p>
           <p>
-            <strong className="text-blue-900">Dirección:</strong>{" "}
+            <strong className="text-blue-900 dark:text-blue-400">Dirección:</strong>{" "}
             {userData.userData.direccion}
           </p>
           <p>
-            <strong className="text-blue-900">Documento:</strong>{" "}
+            <strong className="text-blue-900 dark:text-blue-400">Documento:</strong>{" "}
             {userData.userData.documento}
           </p>
           <p>
-            <strong className="text-blue-900">Razón Social:</strong>{" "}
+            <strong className="text-blue-900 dark:text-blue-400">Razón Social:</strong>{" "}
             {userData.userData.razonSocial}
           </p>
           <p>
-            <strong className="text-blue-900">Código Postal:</strong>{" "}
+            <strong className="text-blue-900 dark:text-blue-400">Código Postal:</strong>{" "}
             {userData.userData.codigoPostal}
           </p>
           <p>
-            <strong className="text-blue-900">Observaciones:</strong>{" "}
+            <strong className="text-blue-900 dark:text-blue-400">Observaciones:</strong>{" "}
             {userData.userData.observaciones}
           </p>
         </div>

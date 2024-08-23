@@ -120,7 +120,7 @@ const EquiposModal: React.FC<EquiposModalProps> = ({ equipo, onClose }) => {
   return (
     <>
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full dark:bg-gray-600 ">
           <h2 className="text-xl font-bold mb-4">{equipo.nombre}</h2>
 
           {/* Mostrar información del equipo según la interfaz */}
@@ -195,7 +195,7 @@ const EquiposModal: React.FC<EquiposModalProps> = ({ equipo, onClose }) => {
                 <select
                   value={selectedUser}
                   onChange={(e) => setSelectedUser(e.target.value)}
-                  className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md dark:text-blue-800"
                 >
                   <option value="">Selecciona un usuario</option>
                   {users.length > 0 ? (
