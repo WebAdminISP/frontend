@@ -1,6 +1,7 @@
 "use client";
 import { useAuth } from "@/context/AuthContext";
 import { useSidebarContext } from "@/context/SidebarContext";
+import useIsMobile from "@/hooks/HookIsMobile";
 import { sendAssistanceRequest } from "@/services/Soporte.services";
 import React, { useState } from "react";
 
@@ -13,6 +14,10 @@ const BajaServicio = () => {
   const [confirmation, setConfirmation] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const token = userData?.tokenData?.token;
+  const isMobile = useIsMobile(); // Usa el hook para detectar si es móvil
+  const divClasses = `p-3 mt-10 transition-all duration-1000 ${
+    isMobile ? "" : btnFixed ? "ml-[270px]" : "ml-24"
+  }`;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -46,11 +51,7 @@ const BajaServicio = () => {
   };
 
   return (
-    <div
-      className={`p-3 mt-36 transition-all duration-1000 ${
-        btnFixed ? "ml-[40%]" : "ml-[33%]"
-      }`}
-    >
+    <div className={divClasses}>
       <div className="max-w-lg p-8 bg-white rounded-md shadow-md">
         <h2 className="text-2xl font-bold mb-4">Dar de Baja Servicio</h2>
         {confirmation ? (

@@ -4,21 +4,21 @@ import React from "react";
 import { useAuth } from "@/context/AuthContext";
 import Estadodecuenta from "./Estadodecuenta/Estadodecuenta";
 import PanelDeControl from "./PanelDeControl/PanelDeControl";
+import useIsMobile from "@/hooks/HookIsMobile";
 
 const Home = () => {
   const { btnFixed } = useSidebarContext();
   const { userData } = useAuth();
   const roles = userData?.tokenData.user.roles;
+  const isMobile = useIsMobile(); // Usa el hook para detectar si es móvil
+
+  const divClasses = `p-3 mt-10 transition-all duration-1000 ${
+    isMobile ? "" : btnFixed ? "ml-[270px]" : "ml-24"
+  }`;
 
   return (
     <>
-         
-
-      <div
-        className={`p-3 mt-10 transition-all duration-1000  ${
-          btnFixed ? "ml-[270px]" : "ml-24"
-        }`}
-      >
+      <div className={divClasses}>
         <h1 className="text-2xl font-bold text-blue-900 mt-10 dark:text-blue-400/70">
           {roles?.includes("admin")
             ? "Bienvenido a tu plataforma de Administración!"
@@ -30,21 +30,17 @@ const Home = () => {
             : "Dashboard de Usuario"}
         </h2>
         <br />
-        {
-            roles?.includes("admin") ? (
-              <PanelDeControl />
-            ) : roles?.includes("user") ? (
-              <Estadodecuenta />
-            ) : (
-              null
-            )
-          }
-
+        <div className="flex justify-center">
+          {roles?.includes("admin") ? (
+            <PanelDeControl />
+          ) : roles?.includes("user") ? (
+            <Estadodecuenta />
+          ) : null}
+        </div>
         <br />
-
-
       </div>
     </>
   );
 };
+
 export default Home;
