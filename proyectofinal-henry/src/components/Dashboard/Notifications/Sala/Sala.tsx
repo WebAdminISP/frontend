@@ -12,7 +12,7 @@ const router = useRouter();
 const pathname = usePathname()
 
   const handleJoinRoom = () => {
-     router.push(`/dashboard/atencionenlinea?room=${room}`);
+     router.push(`/dashboard/atencionenlinea?room=${room}&hall=${count}`);
     // if (pathname == "/dashboard/atencionenlinea"){window.location.reload();}
     //redirect(`/dashboard/atencionenlinea?room=${room}`);
   };

@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server'
 
 const API_KEY = process.env.NEXT_PUBLIC_ROOM_API_KEY;
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest){
+  
   const token = request.headers.get('authorization');
   
   if (!token || token !== API_KEY) {
@@ -10,10 +12,11 @@ export async function POST(request: Request) {
   }
 
   try {
-    const { roomIDs } = await request.json();
+    const response = await request.json();
+    const { roomIDs } = response;
     console.log('Recibido array de roomIDs:', roomIDs);
-
-    return NextResponse.json({ status: 'success', received: roomIDs });
+    const res = NextResponse.json({ status: 'success', received: roomIDs });
+    return res;
   } 
   catch (error) {
     if (error instanceof Error) {

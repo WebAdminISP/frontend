@@ -30,3 +30,25 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: ['/dashboard/:path*'], 
 };
+
+
+// import { NextResponse } from 'next/server'
+// import type { NextRequest } from 'next/server'
+
+// export async function middleware(request: NextRequest) {
+
+//   console.log("En el middleware para la ruta:", request.nextUrl.pathname);
+//   const res = NextResponse.json({ message: 'Setting a test cookie' });
+
+//   res.cookies.set('testCookie', 'testValue', {
+//     httpOnly: true,
+//     secure: false,
+//     maxAge: 60 * 60 * 24,
+//   });
+
+//   return NextResponse.next();
+// }
+
+// export const config = {
+//   matcher: ['/api/:path*'], 
+// };
