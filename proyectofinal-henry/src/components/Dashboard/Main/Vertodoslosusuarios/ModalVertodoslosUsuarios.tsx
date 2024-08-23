@@ -228,7 +228,7 @@ const UserDetailModal: React.FC<UserDetailModalProps> = ({
         <ModalEdicionDeDatos
           isOpen={showConfirmationEdit}
           onClose={() => setShowConfirmationEdit(false)}
-          userId={user.id}
+          user={user}
         />
       )}
     </>

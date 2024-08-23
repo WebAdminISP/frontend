@@ -49,30 +49,37 @@ const ModalEdicionDeDatos: React.FC<any> = ({
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: name === "documento" ? Number(value) : value, // Convertir a número si es el documento
     }));
   };
+  
 
   const handleConfirmChange = async () => {
     try {
-      if(token){
-      console.log("Datos que se van a enviar:", formData);
-      await sendProfileChangeRequest(token, user.id , formData)
-      Swal.fire({
-        title: "¡Datos actualizados correctamente!",
-        icon: "success",
-        showCancelButton: false,
-        confirmButtonColor: "#3085d6",
-        confirmButtonText: "Ok"
-      }).then((result) => {
-        if (result.isConfirmed || result.isDismissed) {
-          window.location.reload();
-				}
-      });
-      onClose();
+      if (token) {
+        const dataToSend = {
+          ...formData,
+          documento: Number(formData.documento), // Convertir documento a número
+        };
+  
+        console.log("Datos que se van a enviar:", dataToSend);
+        await sendProfileChangeRequest(token, user.id, dataToSend);
+  
+        Swal.fire({
+          title: "¡Datos actualizados correctamente!",
+          icon: "success",
+          showCancelButton: false,
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "Ok",
+        }).then((result) => {
+          if (result.isConfirmed || result.isDismissed) {
+            window.location.reload();
+          }
+        });
+        onClose();
       }
     } catch (error: any) {
-      console.error(error)
+      console.error(error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -80,6 +87,7 @@ const ModalEdicionDeDatos: React.FC<any> = ({
       });
     }
   };
+  
 
   if (!user) return null;
 
