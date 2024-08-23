@@ -49,7 +49,7 @@ export const Seccion: React.FC = () => {
     >
       <div className="lg:w-1/3 flex flex-col items-center text-center lg:text-left">
         <h1 className="text-white text-4xl mt-10 lg:mt-0">
-          ¿Deseas sabes si tienes cobertura en tu zona?
+          ¿Deseas saber si tienes cobertura en tu zona?
         </h1>
         <p className="text-white text-2xl mt-5 lg:mr-5">
           Con gusto nuestro servicio de coordenadas lo verificara por ti

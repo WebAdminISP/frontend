@@ -7,12 +7,17 @@ import { allUsers } from "@/types/allUsers.types";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import UserDetailModal from "./ModalVertodoslosUsuarios";
+import useIsMobile from "@/hooks/HookIsMobile";
 
 const Vertodoslosusuarios = () => {
   const { btnFixed } = useSidebarContext();
   const [users, setUsers] = React.useState<allUsers[]>([]);
   const [selectedUser, setSelectedUser] = useState<allUsers | null>(null);
   const { userData } = useAuth();
+  const isMobile = useIsMobile(); // Usa el hook para detectar si es móvil
+  const divClasses = `p-3 mt-10 transition-all duration-1000 ${
+    isMobile ? "" : btnFixed ? "ml-[270px]" : "ml-24"
+  }`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -103,11 +108,7 @@ const Vertodoslosusuarios = () => {
   };
 
   return (
-    <div
-      className={`p-3 mt-20 transition-all duration-1000 ${
-        btnFixed ? "ml-[270px]" : "ml-24"
-      }`}
-    >
+    <div className={divClasses}>
       <div>
         <h2 className="text-xl font-semibold text-gray-700">Usuarios</h2>
         <div className="flex flex-wrap gap-4">
