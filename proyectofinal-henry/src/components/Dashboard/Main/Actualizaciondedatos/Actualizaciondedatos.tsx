@@ -4,29 +4,91 @@ import { useSidebarContext } from "@/context/SidebarContext";
 import { sendAssistanceRequest } from "@/services/Soporte.services";
 import React, { useState } from "react";
 
-const Actualizaciondedatos = () => {
+type FormField = 'nombre' | 'email' | 'telefono' | 'direccion' | 'razonSocial' | 'documento';
+
+const BajaServicio = () => {
   const { userData } = useAuth();
   const { btnFixed } = useSidebarContext();
   const [reason, setReason] = useState("Actualizacion de datos");
   const [details, setDetails] = useState("Solicito actualizar mis datos...");
   const [confirmation, setConfirmation] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedFields, setSelectedFields] = useState<FormField[]>([]);
+  const [formData, setFormData] = useState<{
+    nombre: string;
+    email: string;
+    telefono: string;
+    direccion: string;
+    razonSocial: string;
+    documento: string | number;
+  }>({
+    nombre: userData?.userData.nombre || "",
+    email: userData?.userData.email || "",
+    telefono: userData?.userData.telefono || "",
+    direccion: userData?.userData.direccion || "",
+    razonSocial: userData?.userData.razonSocial || "",
+    documento: userData?.userData.documento || "",
+  });
+
   const token = userData?.tokenData?.token;
+
+  const handleFieldSelection = (field: FormField) => {
+    setSelectedFields((prev) => {
+      const newSelectedFields = prev.includes(field)
+        ? prev.filter((f) => f !== field)
+        : [...prev, field];
+
+      // Actualizar las observaciones al seleccionar o deseleccionar un campo
+      setDetails((prevDetails) => {
+        const regex = new RegExp(`${field.charAt(0).toUpperCase() + field.slice(1)}: .*`, 'i');
+        if (newSelectedFields.includes(field)) {
+          return prevDetails.match(regex)
+            ? prevDetails
+            : `${prevDetails}\n${field.charAt(0).toUpperCase() + field.slice(1)}: ${formData[field]}`;
+        } else {
+          return prevDetails.replace(regex, "").trim();
+        }
+      });
+
+      return newSelectedFields;
+    });
+  };
+
+  const handleInputChange = (field: FormField, value: string) => {
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+
+    // Actualizar las observaciones cuando se cambia el valor del campo seleccionado
+    setDetails((prevDetails) => {
+      const regex = new RegExp(`${field.charAt(0).toUpperCase() + field.slice(1)}: .*`, 'i');
+      if (prevDetails.match(regex)) {
+        return prevDetails.replace(regex, `${field.charAt(0).toUpperCase() + field.slice(1)}: ${value}`);
+      } else {
+        return `${prevDetails}\n${field.charAt(0).toUpperCase() + field.slice(1)}: ${value}`;
+      }
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Definir el problema que se enviará
+      const selectedData = selectedFields.reduce((acc, field) => {
+        acc[field] = String(formData[field]); // Convertir a string explícitamente
+        return acc;
+      }, {} as Record<FormField, string>);
+
       const problema = `Solicitud de: ${reason}`;
 
-      // Definir los datos que se enviarán en la solicitud
       const requestData = {
-        diaCliente: new Date().toISOString(), // Puedes ajustar esto según tus necesidades
-        horarios: "", // Esto puede ser personalizado
+        diaCliente: new Date().toISOString(),
+        horarios: "",
         problema,
         observaciones: details,
+        ...selectedData,
       };
 
       if (token) {
@@ -35,8 +97,7 @@ const Actualizaciondedatos = () => {
 
       setConfirmation(true);
     } catch (error) {
-      console.error("Error al enviar la solicitud de baja:", error);
-      // Manejo del error, si lo deseas, podrías mostrar un mensaje al usuario
+      console.error("Error al enviar la solicitud:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -52,7 +113,7 @@ const Actualizaciondedatos = () => {
         <h2 className="text-2xl font-bold mb-4">Actualizacion de datos</h2>
         {confirmation ? (
           <p className="text-green-600">
-            La solicitud de actualizacion de datos se a enviado correctamente
+            La solicitud de actualizacion de datos se ha enviado correctamente
           </p>
         ) : (
           <form onSubmit={handleSubmit}>
@@ -80,18 +141,17 @@ const Actualizaciondedatos = () => {
               >
                 Razón
               </label>
-
               <input
                 type="text"
-                id="razon"
+                id="reason"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 value={reason}
-                readOnly
+                onChange={(e) => setReason(e.target.value)}
                 required
               />
-
             </div>
-             <div className="mb-4">
+
+            <div className="mb-4">
               <label
                 htmlFor="details"
                 className="block text-sm font-medium text-gray-700"
@@ -105,6 +165,30 @@ const Actualizaciondedatos = () => {
                 onChange={(e) => setDetails(e.target.value)}
               />
             </div>
+
+            {Object.keys(formData).map((field) => (
+              <div key={field} className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">
+                  <input
+                    type="checkbox"
+                    checked={selectedFields.includes(field as FormField)}
+                    onChange={() => handleFieldSelection(field as FormField)}
+                    className="mr-2"
+                  />
+                  {field.charAt(0).toUpperCase() + field.slice(1)}
+                </label>
+                {selectedFields.includes(field as FormField) && (
+                  <input
+                    type="text"
+                    value={formData[field as FormField]}
+                    onChange={(e) =>
+                      handleInputChange(field as FormField, e.target.value)
+                    }
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                )}
+              </div>
+            ))}
 
             <button
               type="submit"
@@ -124,4 +208,4 @@ const Actualizaciondedatos = () => {
   );
 };
 
-export default Actualizaciondedatos;
+export default BajaServicio;
