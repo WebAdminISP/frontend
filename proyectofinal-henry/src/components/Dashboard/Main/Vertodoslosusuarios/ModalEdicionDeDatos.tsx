@@ -87,7 +87,6 @@ const ModalEdicionDeDatos: React.FC<any> = ({
       });
     }
   };
-  
 
   if (!user) return null;
 

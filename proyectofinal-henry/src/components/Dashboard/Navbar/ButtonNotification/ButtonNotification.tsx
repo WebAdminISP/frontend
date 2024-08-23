@@ -1,53 +1,32 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+
+import React, { useState } from 'react';
 import Notifications from '../../Notifications/Notifications';
 import { useAuth } from '@/context/AuthContext';
-import { getPendingRooms } from '@/services/room.services';
-import { useRoom } from '@/context/RoomContext';
+import { useConnect } from '@/context/SocketContext';
+
 
 const ButtonNotification = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [notifying, setNotifying] = useState(true);
-  const { roomIDs, updateRooms } = useRoom();
-  
-  
-  
- // const { userData } = useAuth();
-  //const token = userData?.tokenData.token;
-  //const [rooms, setRooms] = useState<any[]>([]);
-
-
-  // useEffect(() => {
-  //   if(token){
-
-  //     const fetchRooms = async () => {
-  //       const pendingRooms = await getPendingRooms(token);
-  //       setRooms(pendingRooms);
-  //       console.log("buscando salas pendientes..");
-  //     };
-      
-  //     // Llamar a la API inmediatamente y luego cada cierto intervalo de tiempo (e.g., cada 30 segundos)
-  //     fetchRooms();
-  //     const intervalId = setInterval(fetchRooms, 5000); // 5 segundos
-      
-  //     return () => clearInterval(intervalId); // Limpiar el intervalo al desmontar el componente
-  //   }
-  // }, [token]);
-
+  const { rooms } = useConnect();
+ 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
     setNotifying(false);
   };
-
+ 
   return (
-    <div className="relative z-50">
+    <div className="relative z-50 pl-4">
       <button 
         className="relative flex h-8 w-8 items-center justify-center rounded-full border-0 bg-gray-400/30 text-gray-300 mr-4"
         onClick={toggleDrawer}
       >
-        {roomIDs.length > 0 && (
+
+        {rooms.length > 0 && (
       <span className="absolute mt-[-3px] mr-[-3px] top-0 right-0 flex items-center justify-center h-4 w-4 rounded-full bg-red-500 text-white text-xs ">
-        {roomIDs.length}
+        {rooms.length}
+
       </span>
     )}
         <span className={`${!notifying && 'hidden'} absolute -top-0.5 right-0 z-1 h-2 w-2 rounded-full bg-meta-1`}>
@@ -61,8 +40,8 @@ const ButtonNotification = () => {
       {drawerOpen && 
          <div className="fixed inset-0 flex justify-end z-50">
             <div className="fixed inset-0 bg-black opacity-50" onClick={toggleDrawer}></div>
-            <Notifications rooms={roomIDs}/>
-        </div>
+            <Notifications rooms={rooms}/>
+         </div>
       }
     </div>
   );

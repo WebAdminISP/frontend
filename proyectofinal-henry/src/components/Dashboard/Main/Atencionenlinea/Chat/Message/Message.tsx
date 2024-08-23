@@ -3,6 +3,8 @@ import { useAuth } from "@/context/AuthContext";
 import React from "react";
 
 interface MessageData {
+  isAdmin: boolean;
+  roomId: string;
   userId: string;
   message: string;
   name: string;

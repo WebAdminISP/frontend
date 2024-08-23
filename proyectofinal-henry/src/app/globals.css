@@ -101,3 +101,14 @@ html {
 .transform-style-3d {
   transform-style: preserve-3d; /* Para habilitar el giro en 3D */
 }
+
+
+@keyframes parpadeo {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.parpadeo {
+  animation: parpadeo 1s infinite;
+}

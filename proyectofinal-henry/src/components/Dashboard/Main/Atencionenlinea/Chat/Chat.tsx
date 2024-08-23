@@ -4,6 +4,8 @@ import Message from "./Message/Message";
 import MessageInput from "./MessageInput/MessageInput";
 
 interface MessageData {
+  isAdmin: boolean;
+  roomId: string;
   userId: string;
   message: string;
   name: string;
@@ -12,7 +14,7 @@ interface MessageData {
 
 interface ChatProps {
   messages: MessageData[];
-  roomId: string | null;
+  roomId: string | undefined;
   isConnected: boolean; // Propiedad para verificar si hay conexión con el socket.io
   warningMessages: string[];
 }
@@ -20,11 +22,16 @@ interface ChatProps {
 const Chat: React.FC<ChatProps> = ({ messages, roomId, isConnected, warningMessages }) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+
+  const filteredMessages = messages.filter(msg => msg.roomId === roomId);
+
+
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
-  }, [messages]);
+  }, [filteredMessages]);
+
 
   return (
     <>
@@ -35,7 +42,7 @@ const Chat: React.FC<ChatProps> = ({ messages, roomId, isConnected, warningMessa
           <p>{warning}</p>
         </div>
       ))}
-      {messages.map((msg, index) => (
+      {filteredMessages.map((msg, index) => (
         <Message key={index} data={msg} />
       ))}
       <div ref={messagesEndRef} /> {/* Referencia al final del contenedor */}

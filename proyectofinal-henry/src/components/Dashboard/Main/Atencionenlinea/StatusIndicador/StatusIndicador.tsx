@@ -12,7 +12,7 @@ const StatusIndicator: React.FC<StatusIndicatorProps> = ({ isConnected }) => {
       {isConnected ? "🟢 " : "🔴 "}
       </small>
       <small className={isConnected ? "font-semibold text-green-700" : "font-semibold text-red-700"}>
-      {isConnected ? "En línea" : "Fuera de Linea"}
+      {isConnected ? "En línea" : "Chat cerrado"}
       </small>
     </div>
   );
