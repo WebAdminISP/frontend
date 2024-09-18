@@ -25,7 +25,7 @@ const Documentation = () => {
             ¡Únete ahora y comienza a aprovechar al máximo nuestra plataforma!
           </h6>
 
-          <div className='grid grid-cols-2 gap-4 mt-32'>
+          <div className='grid grid-cols-3 gap-4 mt-32'>
             <Link href="/login/1" className={`${styles.imageBackground} rounded-3xl w-auto h-40 text-gray-200 shadow-2xl opacity-90 p-2 text-center items-center justify-center flex `} type="button">INICIAR SESION</Link>
             <Link href="/#contacto" className={`${styles.imageBackground} rounded-3xl w-auto h-40 text-gray-200 shadow-2xl opacity-90 p-2 text-center items-center justify-center flex`} type="button">VERIFICAR COBERTURA</Link>
             <Link href="/#contacto" className={`${styles.imageBackground} rounded-3xl w-auto h-40 text-gray-200 shadow-2xl opacity-90 p-2 text-center items-center justify-center flex`} type="button">SOLICITAR REGISTRO</Link>
