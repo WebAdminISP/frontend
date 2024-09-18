@@ -83,7 +83,7 @@ console.log("pathname: ", pathname);
 		  <div>
 			<form onSubmit={handleSubmit} className='px-5'>
 			  <input
-                className=' w-11/12 h-10 bg-gray-300 justify-center flex p-4 mt-6 outline-none rounded-md text-sm placeholder-gray-700'
+                className='text-gray-700 w-11/12 h-10 bg-gray-300 justify-center flex p-4 mt-6 outline-none rounded-md text-sm placeholder-gray-700'
 				type="text"
 				name="email"
 				placeholder="Usuario"
@@ -92,7 +92,7 @@ console.log("pathname: ", pathname);
 			  />
 				{errors.email  && <p className=" text-red-700 text-sm pl-4 fixed italic whitespace-pre-line"> {errors.email} </p>}
 			  <input
-                className=' w-11/12 h-10 bg-gray-300 justify-center flex p-4 mt-6 outline-none rounded-md text-sm placeholder-gray-700'
+                className='text-gray-700 w-11/12 h-10 bg-gray-300 justify-center flex p-4 mt-6 outline-none rounded-md text-sm placeholder-gray-700'
 				type="password"
 				name="password"
 				placeholder="Contraseña"
